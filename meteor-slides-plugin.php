@@ -6,7 +6,7 @@
 	Author: Josh Leuze
 	Author URI: http://www.jleuze.com/
 	License: GPL2
-	Version: 1.0
+	Version: 1.0.1
 */
 
 /*  Copyright 2010 Josh Leuze (email : mail@jleuze.com)
@@ -73,7 +73,6 @@
 			'rewrite' => true,
 			'capability_type' => 'page',
 			'hierarchical' => false,
-			'menu_position' => 25,
 			'supports' => array('title', 'thumbnail'),
 			'menu_icon' => ''. plugins_url('/images/slides-icon-20x20.png', __FILE__)
 		
