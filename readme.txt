@@ -3,7 +3,7 @@ Contributors: JLeuze
 Tags: slide, slider, slideshow, custom post types, jquery
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 
 Adds a custom post type for slides to WordPress. Use Meteor Slides to create a quick little slideshow for your site.
 
@@ -44,6 +44,9 @@ Before adding any slides, go to the Meteor Slides Settings page and set the slid
 2. Meteor Slides Settings
 
 == Changelog ==
+
+= 1.0.2 =
+* Fixed shortcode bugs, positioning of slideshow and loop within loop.
 
 = 1.0.1 =
 * Removed "menu_position" to prevent conflicts with other plugins.

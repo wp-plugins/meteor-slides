@@ -6,7 +6,7 @@
 	Author: Josh Leuze
 	Author URI: http://www.jleuze.com/
 	License: GPL2
-	Version: 1.0.1
+	Version: 1.0.2
 */
 
 /*  Copyright 2010 Josh Leuze (email : mail@jleuze.com)
@@ -374,7 +374,19 @@
 		
 	// Adds shortcode to load slideshow in content
 	
-	add_shortcode( 'meteor_slideshow', 'meteor_slideshow' );
+	function meteor_slideshow_shortcode() {
+	
+		ob_start();
+		
+		include( 'meteor-slideshow.php' );
+		
+		$meteor_slideshow_content = ob_get_clean();
+		
+		return $meteor_slideshow_content;
+	
+	}
+	
+	add_shortcode( 'meteor_slideshow', 'meteor_slideshow_shortcode' );
 	
 		/* To load the slideshow, add this line to your page or post:
 	

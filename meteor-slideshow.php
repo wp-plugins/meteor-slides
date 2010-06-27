@@ -4,7 +4,7 @@
 	
 	$loop = new WP_Query( array( 'post_type' => 'slide', 'posts_per_page' => $options['slideshow_quantity'] ) ); ?>
 	
-	<div class="meteor-slideshow" style="height:<?php echo $options['slide_height'] ?>px; width:<?php echo $options['slide_width'] ?>px; overflow:hidden">
+	<div class="meteor-slideshow" style="height:<?php echo $options['slide_height'] ?>px; width:<?php echo $options['slide_width'] ?>px; overflow:hidden;">
 	
 		<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
@@ -23,5 +23,7 @@
 			</div><!-- .slide -->
 			
 		<?php endwhile; ?>
+		
+		<?php wp_reset_query(); ?>
 			
 	</div><!-- .meteor-slideshow -->
