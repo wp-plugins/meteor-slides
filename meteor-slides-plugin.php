@@ -6,7 +6,7 @@
 	Author: Josh Leuze
 	Author URI: http://www.jleuze.com/
 	License: GPL2
-	Version: 1.0.2
+	Version: 1.1
 */
 
 /*  Copyright 2010 Josh Leuze (email : mail@jleuze.com)
@@ -327,6 +327,32 @@
 		
 	}
 	
+	// Adds CSS for the slideshow
+	
+	add_action('wp_head', 'meteorslides_css');
+
+	function meteorslides_css() {
+	
+		if(file_exists(get_stylesheet_directory()."/meteor-slides.css")) {
+		
+			echo "<link type='text/css' rel='stylesheet' href='" . get_stylesheet_directory_uri() . "/meteor-slides.css' />";
+					
+		}
+		
+		elseif(file_exists(get_template_directory()."/meteor-slides.css")) {
+					
+			echo "<link type='text/css' rel='stylesheet' href='" . get_template_directory_uri() . "/meteor-slides.css' />";
+		
+		}
+	
+		else {
+		
+			echo "<link type='text/css' rel='stylesheet' href='" . plugins_url('/css/meteor-slides.css', __FILE__) . "' />";
+		
+		}
+		
+	}
+	
 	// Adds JavaScript for the slideshow
 	
 	add_action( 'wp_print_scripts', 'meteorslides_javascript' );
@@ -393,5 +419,40 @@
 			[meteor_slideshow]
 	
 		*/
+		
+	// Adds widget to load slideshow in sidebar
+
+	add_action( 'widgets_init', 'meteorslides_register_widget' );
+
+	function meteorslides_register_widget() {
+	
+		register_widget( 'meteorslides_widget' );
+	
+	}
+
+	class meteorslides_widget extends WP_Widget {
+
+		function meteorslides_widget() {
+
+			$widget_ops = array( 'classname' => 'meteor-slides-widget', 'description' => 'Add Meteor Slides slideshow to a sidebar' );
+
+			$control_ops = array( 'id_base' => 'meteor-slides-widget' );
+
+			$this->WP_Widget( 'meteor-slides-widget', 'Meteor Slides Widget', $widget_ops, $control_ops );
+		}
+
+		function widget( $args, $instance ) {
+		
+			extract( $args );
+
+			echo $before_widget;
+
+			meteor_slideshow();
+
+			echo $after_widget;
+		
+		}
+
+	}
 		
 ?>

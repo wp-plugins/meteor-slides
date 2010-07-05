@@ -96,7 +96,7 @@
 	
 	<h3>Install Slideshow</h3>
 	
-	<p>Use <code><&#63;php if(function_exists('meteor_slideshow')) { meteor_slideshow(); } &#63;></code> to add this slideshow to your theme, or use <code>[meteor_slideshow]</code> to add it to your Post or Page content.
+	<p>Use <code><&#63;php if(function_exists('meteor_slideshow')) { meteor_slideshow(); } &#63;></code> to add this slideshow to your theme, use <code>[meteor_slideshow]</code> to add it to your Post or Page content, or use the Meteor Slides Widget to add it to a sidebar.
 	
 	<p><em>Please <a title="Post a question or problem in the forums" href="http://wordpress.org/tags/meteor-slides?forum_id=10#postform">post any questions or problems</a> in the WordPress.org support forums.</em></p>
 
