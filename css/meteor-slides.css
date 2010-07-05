@@ -1,0 +1,24 @@
+/* Stylesheet for the Meteor Slides slideshow
+
+	Copy "meteor-slides.css" to your theme's directory to replace this stylesheet
+
+*/
+
+#meteor-slideshow {
+	margin: 0;
+	padding: 0;
+	z-index: 1;
+	overflow: hidden;
+}
+
+#meteor-slideshow .slide a img {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+#meteor-slideshow .slide img {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
