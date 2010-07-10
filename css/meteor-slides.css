@@ -4,11 +4,22 @@
 
 */
 
-#meteor-slideshow {
+#meteor-slideshow, .meteor-slides {
 	margin: 0;
 	padding: 0;
+	position: relative;
 	z-index: 1;
 	overflow: hidden;
+}
+
+#meteor-slideshow .slide {
+	margin: 0;
+	padding: 0;
+	display: none;
+}
+
+#meteor-slideshow #slide-1 {
+	display: block;
 }
 
 #meteor-slideshow .slide a img {

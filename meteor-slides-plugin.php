@@ -6,7 +6,7 @@
 	Author: Josh Leuze
 	Author URI: http://www.jleuze.com/
 	License: GPL2
-	Version: 1.1
+	Version: 1.1.1
 */
 
 /*  Copyright 2010 Josh Leuze (email : mail@jleuze.com)
@@ -25,18 +25,44 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-	// Adds featured image functionality
+	// Adds featured image size for slides
 	
 	add_action( 'plugins_loaded', 'meteorslides_featured_image' );
-
-	function meteorslides_featured_image() {
 	
-		add_theme_support( 'post-thumbnails', array( 'slide' ) );
+	function meteorslides_featured_image() {
 		
 		$options = get_option( 'meteorslides_options' );
 		
 		add_image_size( 'featured-slide', $options['slide_width'], $options['slide_height'], true );
 	
+	}
+	
+	// Adds featured image functionality for slides
+	
+	add_action( 'after_setup_theme', 'meteorslides_featured_image_array', '9999' );
+
+	function meteorslides_featured_image_array() {
+	
+		global $_wp_theme_features;
+
+		if( !isset( $_wp_theme_features['post-thumbnails'] ) ) {
+		
+			$_wp_theme_features['post-thumbnails'] = array( array( 'slide' ) );
+			
+		}
+
+		elseif ( true === $_wp_theme_features['post-thumbnails'] ) {
+        
+			$_wp_theme_features['post-thumbnails'] = array( array( 'post','page', 'slide' ) );
+			
+		}
+
+		elseif ( is_array( $_wp_theme_features['post-thumbnails'] ) ) {
+        
+			$_wp_theme_features['post-thumbnails'][0][] = 'slide';
+			
+		}
+		
 	}
 
 	// Adds custom post type

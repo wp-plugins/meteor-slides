@@ -1,14 +1,16 @@
 <?php global $post;
 	
 	$options = get_option( 'meteorslides_options' );
+
+	$i = 1;
 	
 	$loop = new WP_Query( array( 'post_type' => 'slide', 'posts_per_page' => $options['slideshow_quantity'] ) ); ?>
 	
-	<div id="meteor-slideshow">
+	<div id="meteor-slideshow" class="meteor-slides">
 	
 		<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
-			<div class="slide">
+			<div id="slide-<?php echo $i; ?>" class="slide">
 				
 				<?php if(get_post_meta($post->ID, "slide_url_value", $single = true) != ""): ?>
 						
@@ -21,6 +23,8 @@
 				<?php endif; ?>
 			
 			</div><!-- .slide -->
+			
+			<?php $i++; ?>
 			
 		<?php endwhile; ?>
 		

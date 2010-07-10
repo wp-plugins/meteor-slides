@@ -3,7 +3,7 @@ Contributors: JLeuze
 Tags: slide, slider, slideshow, custom post types, jquery
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 1.1
+Stable tag: 1.1.1
 
 Adds a custom post type for slides to WordPress. Use Meteor Slides to create a quick little slideshow for your site.
 
@@ -45,13 +45,17 @@ This short screencast explains how to set up Meteor Slides, create new slides, a
 
 == Frequently Asked Questions ==
 
+= I add a slide, save or publish it, and then it's missing or not found, what gives? =
+
+Every post needs a title, make sure to give your slide a title where is says "Enter title here". This title is mostly used just to label them in the backend, but it will also be used as the title of your link if you add a link.
+
 = I added an image to my post, why isn't it showing up in the slide? =
 
-Make sure to click "Use as featured image" after uploading your image.
+Make sure to click "Use as featured image" after uploading your image. If the image is added correctly to the slide, you could see a thumbnail of that image in the Slide Image metabox. 
 
 = Why is the slideshow covering up my dropdown menus? =
 
-The `z-index` on the slideshow is higher than the dropdowns, cause them to be layered below the slides. Lower the `z-index` of `#meteor-slideshow` until the dropdowns are above the slideshow.
+The `z-index` on the slideshow is higher than the dropdowns, causing them to be layered below the slides. Lower the `z-index` of `#meteor-slideshow` until the dropdowns are above the slideshow.
 
 = How do I customize the slideshow's CSS stylesheet? =
 
@@ -66,6 +70,9 @@ Copy `meteor-slides.css` from `/meteor-slides/css/` to your theme's directory to
 
 == Changelog ==
 
+= 1.1.1 =
+* Fixed featured image array conflict with some themes, hide slides from revealing on load, added unique id to each slide.
+
 = 1.1 =
 * Added slideshow widget, added stylesheet, updated JQuery Cycle to 2.88.
 
@@ -79,6 +86,9 @@ Copy `meteor-slides.css` from `/meteor-slides/css/` to your theme's directory to
 * Initial release of Meteor Slides.
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+This version of Meteor Slides fixes a bug that was causing some themes to disable the featured images.
 
 = 1.1 =
 This version of Meteor Slides adds a stylesheet for the slideshow which aids theme compatability.
