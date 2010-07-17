@@ -1,9 +1,10 @@
 === Plugin Name ===
 Contributors: JLeuze
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mail%40jleuze%2ecom&item_name=Meteor%20Slides%20Donation&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
 Tags: slide, slider, slideshow, custom post types, jquery
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 1.1.1
+Stable tag: 1.2
 
 Adds a custom post type for slides to WordPress. Use Meteor Slides to create a quick little slideshow for your site.
 
@@ -15,14 +16,14 @@ The slides are managed as featured images through the media library; they will a
 
 = Features =
 
-* **Easy integration:** Add the slideshow to your site using a template tag or shortcode.
+* **Easy integration:** Add the slideshow to your site using a template tag, shortcode, or widget.
 * **Slideshow settings page:** Control the slide height and width, the number of slides, and the slideshow speed and transition style.
 * **Slideshow transition styles:** blindX, blindY, blindZ, cover, curtainX, curtainY, fade, fadeZoom, growX, growY, none, scrollUp, scrollDown, scrollLeft, scrollRight, scrollHorz, scrollVert, slideX, slideY, turnUp, turnDown, turnLeft, turnRight, uncover, wipe, zoom.
+* **Multiple languages:** English, Indonesian, Turkish.
 
 = Future Features =
 
 * Multiple slideshows.
-* Localization support.
 * Choose which slides display.
 * Reorder slides.
 
@@ -70,6 +71,9 @@ Copy `meteor-slides.css` from `/meteor-slides/css/` to your theme's directory to
 
 == Changelog ==
 
+= 1.2 =
+* Added localization functionality, added Indonesian and Turkish translations.
+
 = 1.1.1 =
 * Fixed featured image array conflict with some themes, hide slides from revealing on load, added unique id to each slide.
 
@@ -86,6 +90,9 @@ Copy `meteor-slides.css` from `/meteor-slides/css/` to your theme's directory to
 * Initial release of Meteor Slides.
 
 == Upgrade Notice ==
+
+= 1.2 =
+Meteor Slides 1.2 adds localization support and includes Indonesian and Turkish translations.
 
 = 1.1.1 =
 This version of Meteor Slides fixes a bug that was causing some themes to disable the featured images.

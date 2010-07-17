@@ -6,7 +6,7 @@
 	Author: Josh Leuze
 	Author URI: http://www.jleuze.com/
 	License: GPL2
-	Version: 1.1.1
+	Version: 1.2
 */
 
 /*  Copyright 2010 Josh Leuze (email : mail@jleuze.com)
@@ -73,18 +73,18 @@
 	
 		$labels = array(
 		
-			'name' => _x('Slides', 'post type general name'),
-			'singular_name' => _x('Slide', 'post type singular name'),
-			'add_new' => _x('Add New', 'slides'),
-			'add_new_item' => __('Add New Slide'),
-			'edit_item' => __('Edit Slide'),
-			'edit' => _x('Edit', 'slides'),
-			'new_item' => __('New Slide'),
-			'view_item' => __('View Slide'),
-			'search_items' => __('Search Slides'),
-			'not_found' =>  __('No slides found'),
-			'not_found_in_trash' => __('No slides found in Trash'), 
-			'view' =>  __('View Slide'),
+			'name' => __('Slides', 'meteor-slides'),
+			'singular_name' => __('Slide', 'meteor-slides'),
+			'add_new' => __('Add New', 'meteor-slides'),
+			'add_new_item' => __('Add New Slide','meteor-slides'),
+			'edit_item' => __('Edit Slide','meteor-slides'),
+			'edit' => __('Edit', 'meteor-slides'),
+			'new_item' => __('New Slide','meteor-slides'),
+			'view_item' => __('View Slide','meteor-slides'),
+			'search_items' => __('Search Slides','meteor-slides'),
+			'not_found' =>  __('No slides found','meteor-slides'),
+			'not_found_in_trash' => __('No slides found in Trash','meteor-slides'), 
+			'view' =>  __('View Slide','meteor-slides'),
 			'parent_item_colon' => ''
 			
 		);
@@ -116,7 +116,7 @@
 	
 		remove_meta_box( 'postimagediv', 'slide', 'side' );
 	
-		add_meta_box( 'postimagediv', __('Slide Image'), 'post_thumbnail_meta_box', 'slide', 'normal', 'high' );
+		add_meta_box( 'postimagediv', __('Slide Image','meteor-slides'), 'post_thumbnail_meta_box', 'slide', 'normal', 'high' );
 	
 	}
 		
@@ -132,9 +132,7 @@
 			'slide_url' => array(
 			
 				'name' => 'slide_url',
-				'std' => '',
-				'description' => 'Add the URL this slide should link to.'
-				
+				'std' => ''				
 			)
 
 		);
@@ -153,7 +151,7 @@
 
 			echo'<input type="text" name="'.$meteorslides_meta_box['name'].'_value" value="'.$meteorslides_meta_box_value.'" size="55" /><br />';
 
-			echo'<p>'.$meteorslides_meta_box['description'].'</p>';
+			echo'<p>'.__('Add the URL this slide should link to.','meteor-slides').'</p>';
 
 		}
 
@@ -165,7 +163,7 @@
 
 		if( function_exists('add_meta_box') ) {
 
-			add_meta_box( 'meteorslides-url-box', 'Slide Link', 'meteorslides_new_meta_box', 'slide', 'normal', 'low' );
+			add_meta_box( 'meteorslides-url-box', __('Slide Link','meteor-slides'), 'meteorslides_new_meta_box', 'slide', 'normal', 'low' );
 
 		}
 
@@ -229,7 +227,7 @@
 
 	function meteorslides_menu() {
 		
-		add_submenu_page( 'edit.php?post_type=slide', 'Slides Settings', 'Settings', 'manage_options', 'slides-settings', 'meteorslides_settings_page' );
+		add_submenu_page( 'edit.php?post_type=slide', __('Slides Settings','meteor-slides'), __('Settings','meteor-slides'), 'manage_options', 'slides-settings', 'meteorslides_settings_page' );
 	
 	}
 	
@@ -247,19 +245,19 @@
 
 		register_setting( 'meteorslides_options', 'meteorslides_options', 'meteorslides_options_validate' );
 		
-		add_settings_section('meteorslides_slideshow', 'Configure Slideshow', 'meteorslides_section_text', 'meteorslides');
+		add_settings_section('meteorslides_slideshow', __('Configure Slideshow','meteor-slides'), 'meteorslides_section_text', 'meteorslides');
 		
-		add_settings_field('slideshow_quantity', 'Slideshow Quantity', 'slideshow_quantity', 'meteorslides', 'meteorslides_slideshow');
+		add_settings_field('slideshow_quantity', __('Slideshow Quantity','meteor-slides'), 'slideshow_quantity', 'meteorslides', 'meteorslides_slideshow');
 
-		add_settings_field('slide_height', 'Slide Height', 'slide_height', 'meteorslides', 'meteorslides_slideshow');
+		add_settings_field('slide_height', __('Slide Height','meteor-slides'), 'slide_height', 'meteorslides', 'meteorslides_slideshow');
 		
-		add_settings_field('slide_width', 'Slide Width', 'slide_width', 'meteorslides', 'meteorslides_slideshow');
+		add_settings_field('slide_width', __('Slide Width','meteor-slides'), 'slide_width', 'meteorslides', 'meteorslides_slideshow');
 
-		add_settings_field('transition_style', 'Transition Style', 'transition_style', 'meteorslides', 'meteorslides_slideshow');
+		add_settings_field('transition_style', __('Transition Style','meteor-slides'), 'transition_style', 'meteorslides', 'meteorslides_slideshow');
 
-		add_settings_field('transition_speed', 'Transition Speed', 'transition_speed', 'meteorslides', 'meteorslides_slideshow');
+		add_settings_field('transition_speed', __('Transition Speed','meteor-slides'), 'transition_speed', 'meteorslides', 'meteorslides_slideshow');
 
-		add_settings_field('slide_duration', 'Slide Duration', 'slide_duration', 'meteorslides', 'meteorslides_slideshow');
+		add_settings_field('slide_duration', __('Slide Duration','meteor-slides'), 'slide_duration', 'meteorslides', 'meteorslides_slideshow');
 		
 	}
 	
@@ -336,6 +334,16 @@
 		}
 
 		return $options;
+		
+	}
+	
+	// Adds translation support for language files
+	
+	add_action('plugins_loaded', 'meteorslides_localization');
+
+	function meteorslides_localization() {
+		
+		load_plugin_textdomain('meteor-slides', false, '/meteor-slides/languages/');
 		
 	}
 
@@ -460,11 +468,11 @@
 
 		function meteorslides_widget() {
 
-			$widget_ops = array( 'classname' => 'meteor-slides-widget', 'description' => 'Add Meteor Slides slideshow to a sidebar' );
+			$widget_ops = array( 'classname' => 'meteor-slides-widget', 'description' => __('Add Meteor Slides slideshow to a sidebar','meteor-slides') );
 
 			$control_ops = array( 'id_base' => 'meteor-slides-widget' );
 
-			$this->WP_Widget( 'meteor-slides-widget', 'Meteor Slides Widget', $widget_ops, $control_ops );
+			$this->WP_Widget( 'meteor-slides-widget', __('Meteor Slides Widget','meteor-slides'), $widget_ops, $control_ops );
 		}
 
 		function widget( $args, $instance ) {
