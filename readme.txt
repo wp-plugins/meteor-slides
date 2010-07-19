@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mail%
 Tags: slide, slider, slideshow, custom post types, jquery
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 1.2
+Stable tag: 1.2.1
 
 Adds a custom post type for slides to WordPress. Use Meteor Slides to create a quick little slideshow for your site.
 
@@ -19,7 +19,7 @@ The slides are managed as featured images through the media library; they will a
 * **Easy integration:** Add the slideshow to your site using a template tag, shortcode, or widget.
 * **Slideshow settings page:** Control the slide height and width, the number of slides, and the slideshow speed and transition style.
 * **Slideshow transition styles:** blindX, blindY, blindZ, cover, curtainX, curtainY, fade, fadeZoom, growX, growY, none, scrollUp, scrollDown, scrollLeft, scrollRight, scrollHorz, scrollVert, slideX, slideY, turnUp, turnDown, turnLeft, turnRight, uncover, wipe, zoom.
-* **Multiple languages:** English, Indonesian, Turkish.
+* **Multiple languages:** English, French, Indonesian, Romanian, Turkish.
 
 = Future Features =
 
@@ -54,6 +54,10 @@ Every post needs a title, make sure to give your slide a title where is says "En
 
 Make sure to click "Use as featured image" after uploading your image. If the image is added correctly to the slide, you could see a thumbnail of that image in the Slide Image metabox. 
 
+= How can I switch the order of the slides? =
+
+The slides load in the order they were published, you can change the publish date of a slide post to switch the order.
+
 = Why is the slideshow covering up my dropdown menus? =
 
 The `z-index` on the slideshow is higher than the dropdowns, causing them to be layered below the slides. Lower the `z-index` of `#meteor-slideshow` until the dropdowns are above the slideshow.
@@ -70,6 +74,9 @@ Copy `meteor-slides.css` from `/meteor-slides/css/` to your theme's directory to
 2. Meteor Slides Settings
 
 == Changelog ==
+
+= 1.2.1 =
+* Added French and Romanian translations.
 
 = 1.2 =
 * Added localization functionality, added Indonesian and Turkish translations.
@@ -90,6 +97,9 @@ Copy `meteor-slides.css` from `/meteor-slides/css/` to your theme's directory to
 * Initial release of Meteor Slides.
 
 == Upgrade Notice ==
+
+= 1.2.1 =
+Meteor Slides 1.2.1 adds French and Romanian translations.
 
 = 1.2 =
 Meteor Slides 1.2 adds localization support and includes Indonesian and Turkish translations.
