@@ -1,12 +1,12 @@
 <?php
 /*
 	Plugin Name: Meteor Slides
-	Description: Adds a custom post type for slides to WordPress. Use Meteor Slides to create a quick little slideshow for your site.
+	Description: Meteor Slides makes it simple to manage a slideshow with WordPress by adding a custom post type for slides.
 	Plugin URI: http://www.jleuze.com/plugins/meteor-slides
 	Author: Josh Leuze
 	Author URI: http://www.jleuze.com/
 	License: GPL2
-	Version: 1.2.1
+	Version: 1.2.2
 */
 
 /*  Copyright 2010 Josh Leuze (email : mail@jleuze.com)
@@ -243,7 +243,7 @@
 	
 	function meteorslides_register_settings(){
 
-		register_setting( 'meteorslides_options', 'meteorslides_options', 'meteorslides_options_validate' );
+		register_setting( 'meteorslides_options', 'meteorslides_options' );
 		
 		add_settings_section('meteorslides_slideshow', __('Configure Slideshow','meteor-slides'), 'meteorslides_section_text', 'meteorslides');
 		
@@ -258,7 +258,9 @@
 		add_settings_field('transition_speed', __('Transition Speed','meteor-slides'), 'transition_speed', 'meteorslides', 'meteorslides_slideshow');
 
 		add_settings_field('slide_duration', __('Slide Duration','meteor-slides'), 'slide_duration', 'meteorslides', 'meteorslides_slideshow');
-		
+	
+		add_settings_field('slideshow_navigation', __('Slideshow Navigation','meteor-slides'), 'slideshow_navigation', 'meteorslides', 'meteorslides_slideshow');
+
 	}
 	
 	// Adds default values for options on settings page
@@ -271,7 +273,7 @@
   
 		if(($tmp['chkbox1']=='on')||(!is_array($tmp))) {
 		
-			$arr = array("slideshow_quantity" => "5", "slide_height" => "200", "slide_width" => "940", "transition_style" => "fade", "transition_speed" => "2", "slide_duration" => "5");	
+			$arr = array("slideshow_quantity" => "5", "slide_height" => "200", "slide_width" => "940", "transition_style" => "fade", "transition_speed" => "2", "slide_duration" => "5", "slideshow_navigation" => "no");	
 			
 			update_option('meteorslides_options', $arr);
 	
@@ -330,6 +332,14 @@
 		if(!preg_match('/^[0-9]{1,3}$/i', $options['slide_duration'])) {
 
 			$options['slide_duration'] = '';
+
+		}
+		
+		$options['slideshow_navigation'] = trim($input['slideshow_navigation']);
+
+		if(!preg_match('/^[a-z]{4,20}$/i', $options['slideshow_navigation'])) {
+
+			$options['slideshow_navigation'] = '';
 
 		}
 
@@ -408,6 +418,8 @@
 				
 					'meteorslideshowspeed' => $options['transition_speed'] * 1000,
 					'meteorslideshowduration' => $options['slide_duration'] * 1000,
+					'meteorslideshowheight' => $options['slide_height'],
+					'meteorslideshowwidth' => $options['slide_width'],
 					'meteorslideshowtransition' => $options['transition_style']
 					
 				)

@@ -42,7 +42,7 @@
 			
 			$options = get_option('meteorslides_options');
 		
-			$item = array('blindX' => $blindX, 'blindY' => $blindY, 'blindZ' => $blindZ, 'cover' => $cover, 'curtainX' => $curtainX, 'curtainY' => $curtainY, 'fade' => $fade, 'fadeZoom' => $fadeZoom, 'growX' => $growX, 'growY' => $growY, 'scrollUp' => $scrollUp, 'scrollDown' => $scrollDown, 'scrollLeft' => $scrollLeft, 'scrollRight' => $scrollRight, 'zoom' => $zoom, 'scrollHorz' => $scrollHorz, 'scrollVert' => $scrollVert, 'slideX' => $slideX, 'slideY' => $slideY, 'shuffle' => $shuffle, 'turnUp' => $turnUp, 'turnDown' => $turnDown, 'turnLeft' => $turnLeft, 'turnRight' => $turnRight, 'uncover' => $uncover, 'wipe' => $wipe, 'zoom' => $zoom);
+			$item = array('blindX' => $blindX, 'blindY' => $blindY, 'blindZ' => $blindZ, 'cover' => $cover, 'curtainX' => $curtainX, 'curtainY' => $curtainY, 'fade' => $fade, 'fadeZoom' => $fadeZoom, 'growX' => $growX, 'growY' => $growY, 'none' => $none, 'scrollUp' => $scrollUp, 'scrollDown' => $scrollDown, 'scrollLeft' => $scrollLeft, 'scrollRight' => $scrollRight, 'scrollHorz' => $scrollHorz, 'scrollVert' => $scrollVert, 'slideX' => $slideX, 'slideY' => $slideY, 'shuffle' => $shuffle, 'turnUp' => $turnUp, 'turnDown' => $turnDown, 'turnLeft' => $turnLeft, 'turnRight' => $turnRight, 'uncover' => $uncover, 'wipe' => $wipe, 'zoom' => $zoom);
 		
 			echo "<select id='transition_style' name='meteorslides_options[transition_style]' style='width:142px;'>";
 		
@@ -76,6 +76,28 @@
 
 			echo "<input id='slide_duration' name='meteorslides_options[slide_duration]' size='20' type='text' value='{$options['slide_duration']}' /> $seconds";
 
+		}
+		
+		function  slideshow_navigation() {
+				
+			$yes = __('Yes','meteor-slides'); $no = __('No','meteor-slides');;
+			
+			$options = get_option('meteorslides_options');
+		
+			$item = array('no' => $no, 'yes' => $yes);
+		
+			echo "<select id='slideshow_navigation' name='meteorslides_options[slideshow_navigation]' style='width:142px;'>";
+		
+			while (list($key, $val) = each($item)) {
+		
+				$selected = ($options['slideshow_navigation']==$key) ? ' selected="selected"' : '';
+		
+				echo "<option value='$key'$selected>$val</option>";
+	
+			}
+		
+			echo "</select>";
+		
 		}
 
 ?>

@@ -7,26 +7,44 @@
 	$loop = new WP_Query( array( 'post_type' => 'slide', 'posts_per_page' => $options['slideshow_quantity'] ) ); ?>
 	
 	<div id="meteor-slideshow" class="meteor-slides">
+		
+		<?php $meteornav = $options['slideshow_navigation'];
+		
+		if($meteornav == yes): ?>
 	
-		<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
+		<ul id="meteor-nav">
+		
+			<li id="prev"><a href="#">Previous</a></li>
+			
+			<li id="next"><a href="#">Next</a></li>
+			
+		</ul><!-- #meteor-nav -->
+		
+		<?php endif; ?>
+		
+		<div class="slides">
+	
+			<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
-			<div id="slide-<?php echo $i; ?>" class="slide">
+				<div id="slide-<?php echo $i; ?>" class="slide">
 				
-				<?php if(get_post_meta($post->ID, "slide_url_value", $single = true) != ""): ?>
+					<?php if(get_post_meta($post->ID, "slide_url_value", $single = true) != ""): ?>
 						
-					<a href="<?php echo get_post_meta($post->ID, "slide_url_value", $single = true); ?>" title="<?php the_title(); ?>"><?php the_post_thumbnail('featured-slide'); ?></a>
+						<a href="<?php echo get_post_meta($post->ID, "slide_url_value", $single = true); ?>" title="<?php the_title(); ?>"><?php the_post_thumbnail('featured-slide'); ?></a>
 			
-				<?php else: ?>
+					<?php else: ?>
 					
-					<?php the_post_thumbnail('featured-slide'); ?>
+						<?php the_post_thumbnail('featured-slide'); ?>
 					
-				<?php endif; ?>
+					<?php endif; ?>
 			
-			</div><!-- .slide -->
+				</div><!-- .slide -->
 			
-			<?php $i++; ?>
+				<?php $i++; ?>
 			
-		<?php endwhile; ?>
+			<?php endwhile; ?>
+		
+		</div><!-- .slides -->
 		
 		<?php wp_reset_query(); ?>
 			

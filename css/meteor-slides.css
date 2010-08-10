@@ -12,6 +12,11 @@
 	overflow: hidden;
 }
 
+.slides {
+	margin: 0;
+	padding: 0;
+}
+
 #meteor-slideshow .slide {
 	margin: 0;
 	padding: 0;
@@ -32,4 +37,51 @@
 	margin: 0;
 	padding: 0;
 	border: 0;
+}
+
+ul#meteor-nav {
+	display: none;
+	list-style: none;
+	position: relative;
+	top: 0px;
+	z-index: 50;
+	margin: 0;
+	padding: 0;
+}
+
+*ul#meteor-nav {
+	position: absolute;
+}
+
+#meteor-nav #prev {
+	float: left;
+	margin: 0;
+}
+
+#meteor-nav #next {
+	float: right;
+	margin: 0;
+}
+
+#meteor-nav a {
+	display: block;
+	width: 25px;
+	text-indent: -9999px;
+	outline: none;
+}
+	
+#meteor-nav #prev a {
+	background: url('../images/prev.png') no-repeat center right;
+}
+
+#meteor-nav #prev a:hover {
+	background: url('../images/prev.png') no-repeat center left;
+}
+
+#meteor-nav #next a {
+	background: url('../images/next.png') no-repeat center left;
+}
+
+#meteor-nav #next a:hover {
+	background: url('../images/next.png') no-repeat center right;
 }

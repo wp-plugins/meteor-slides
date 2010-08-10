@@ -1,12 +1,12 @@
 === Plugin Name ===
 Contributors: JLeuze
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mail%40jleuze%2ecom&item_name=Meteor%20Slides%20Donation&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
-Tags: slide, slider, slideshow, custom post types, jquery
+Tags: slide, slides, slider, slideshow, image, custom post types, jquery
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 
-Adds a custom post type for slides to WordPress. Use Meteor Slides to create a quick little slideshow for your site.
+Meteor Slides makes it simple to manage a slideshow with WordPress by adding a custom post type for slides.
 
 == Description ==
 
@@ -19,7 +19,7 @@ The slides are managed as featured images through the media library; they will a
 * **Easy integration:** Add the slideshow to your site using a template tag, shortcode, or widget.
 * **Slideshow settings page:** Control the slide height and width, the number of slides, and the slideshow speed and transition style.
 * **Slideshow transition styles:** blindX, blindY, blindZ, cover, curtainX, curtainY, fade, fadeZoom, growX, growY, none, scrollUp, scrollDown, scrollLeft, scrollRight, scrollHorz, scrollVert, slideX, slideY, turnUp, turnDown, turnLeft, turnRight, uncover, wipe, zoom.
-* **Multiple languages:** English, French, Indonesian, Romanian, Turkish.
+* **Multiple languages:** English, French, Indonesian, Italian, Portuguese, Romanian, Spanish, Turkish.
 
 = Future Features =
 
@@ -35,7 +35,7 @@ The slides are managed as featured images through the media library; they will a
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Use `<?php if(function_exists('meteor_slideshow')) { meteor_slideshow(); } ?>` to add this slideshow to your theme, use `[meteor_slideshow]` to add it to your Post or Page content, or use the Meteor Slides Widget to add it to a sidebar.
 
-Before adding any slides, go to the Meteor Slides Settings page and set the slide height and width so that those slides are cropped to the correct size.
+**Before adding any slides, go to the Meteor Slides Settings page and set the slide height and width so that those slides are cropped to the correct size.**
 
 = Meteor Slides Screencast =
 This short screencast explains how to set up Meteor Slides, create new slides, and add the slideshow to your site using the shortcode or template tag.
@@ -60,20 +60,24 @@ The slides load in the order they were published, you can change the publish dat
 
 = Why is the slideshow covering up my dropdown menus? =
 
-The `z-index` on the slideshow is higher than the dropdowns, causing them to be layered below the slides. Lower the `z-index` of `#meteor-slideshow` until the dropdowns are above the slideshow.
+The `z-index` on the slideshow is higher than the dropdowns, causing them to be layered below the slides. Lower the `z-index` of `#meteor-slideshow` or raise the `z-index` of your dropdowns until the dropdowns are above the slideshow.
 
 = How do I customize the slideshow's CSS stylesheet? =
 
-Copy `meteor-slides.css` from `/meteor-slides/css/` to your theme's directory to replace the default stylesheet.
+Copy `meteor-slides.css` from `/meteor-slides/css/` to your theme's directory to replace the plugin's default stylesheet.
 
 *Please [post any questions or problems](http://wordpress.org/tags/meteor-slides?forum_id=10#postform "Post a question or problem in the forums") in the WordPress.org support forums.*
 
 == Screenshots ==
 
 1. New Slide Page
-2. Meteor Slides Settings
+2. Edit Slide Page
+3. Meteor Slides Settings
 
 == Changelog ==
+
+= 1.2.2 =
+* Added slideshow navigation, added Italian, Portuguese, and Spanish translations.
 
 = 1.2.1 =
 * Added French and Romanian translations.
@@ -97,6 +101,9 @@ Copy `meteor-slides.css` from `/meteor-slides/css/` to your theme's directory to
 * Initial release of Meteor Slides.
 
 == Upgrade Notice ==
+
+= 1.2.2 =
+Meteor Slides 1.2.2 adds slideshow navigation and Italian, Portuguese, and Spanish translations.
 
 = 1.2.1 =
 Meteor Slides 1.2.1 adds French and Romanian translations.
