@@ -10,15 +10,17 @@
 		
 		<?php $meteornav = $options['slideshow_navigation'];
 		
-		if($meteornav == yes): ?>
+		if($meteornav == "yes"): ?>
 	
 		<ul id="meteor-nav">
 		
-			<li id="prev"><a href="#">Previous</a></li>
+			<li id="prev"><a href="#"><?php _e('Previous','meteor-slides') ?></a></li>
 			
-			<li id="next"><a href="#">Next</a></li>
+			<li id="next"><a href="#"><?php _e('Next','meteor-slides') ?></a></li>
 			
 		</ul><!-- #meteor-nav -->
+		
+		<div id="meteor-buttons"></div>
 		
 		<?php endif; ?>
 		

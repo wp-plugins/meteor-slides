@@ -42,9 +42,15 @@ Transition Speed
 
 Slide Duration
 
+Slideshow Navigation
+
 Add Meteor Slides slideshow to a sidebar
 
 Meteor Slides Widget
+
+Previous
+
+Next
 
 Set up your slideshow using the options below.
 
@@ -105,6 +111,10 @@ wipe
 zoom
 
 seconds
+
+Yes
+
+No
 
 Meteor Slides Settings
 

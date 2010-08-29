@@ -3,8 +3,8 @@ Contributors: JLeuze
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mail%40jleuze%2ecom&item_name=Meteor%20Slides%20Donation&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
 Tags: slide, slides, slider, slideshow, image, custom post types, jquery
 Requires at least: 3.0
-Tested up to: 3.0
-Stable tag: 1.2.2
+Tested up to: 3.0.1
+Stable tag: 1.2.3
 
 Meteor Slides makes it simple to manage a slideshow with WordPress by adding a custom post type for slides.
 
@@ -19,6 +19,7 @@ The slides are managed as featured images through the media library; they will a
 * **Easy integration:** Add the slideshow to your site using a template tag, shortcode, or widget.
 * **Slideshow settings page:** Control the slide height and width, the number of slides, and the slideshow speed and transition style.
 * **Slideshow transition styles:** blindX, blindY, blindZ, cover, curtainX, curtainY, fade, fadeZoom, growX, growY, none, scrollUp, scrollDown, scrollLeft, scrollRight, scrollHorz, scrollVert, slideX, slideY, turnUp, turnDown, turnLeft, turnRight, uncover, wipe, zoom.
+* **Slideshow navigation:** Optional previous/next and paged slide navigation.
 * **Multiple languages:** English, French, Indonesian, Italian, Portuguese, Romanian, Spanish, Turkish.
 
 = Future Features =
@@ -64,7 +65,15 @@ The `z-index` on the slideshow is higher than the dropdowns, causing them to be 
 
 = How do I customize the slideshow's CSS stylesheet? =
 
-Copy `meteor-slides.css` from `/meteor-slides/css/` to your theme's directory to replace the plugin's default stylesheet.
+Copy `meteor-slides.css` from `/meteor-slides/css/` to your theme's directory to replace the plugin's default stylesheet. If you have navigation enabled, be sure to copy the `buttons.png`, `next.png`, and `prev.png` files to your theme's images folder, or create new graphics to replace them.
+
+= I installed Meteor Slides, and now my theme or plugin's jQuery goodies are broken! =
+
+Your theme or plugin is probably loading an extra copy of jQuery from the theme or plugin, or a third party server. This is unnecessary because WordPress already uses jQuery and it is included in the WordPress install. Meteor Slides loads the version that is within WordPress, to fix this, fix your theme or plugin to use the copy of jQuery that comes with WordPress, like this `<?php wp_enqueue_script("jquery"); ?>`.
+
+= I have another custom post type that uses featured images, and when I install Meteor Slides, it disables the featured image box in my custom post type, what's up with that? =
+
+Meteor Slides is setup to check for post thumbnail support and create an array with the slides post type and any other post types that are in use. But in order for that to work, your theme or plugin needs to specify any custom post types in an array.
 
 *Please [post any questions or problems](http://wordpress.org/tags/meteor-slides?forum_id=10#postform "Post a question or problem in the forums") in the WordPress.org support forums.*
 
@@ -75,6 +84,9 @@ Copy `meteor-slides.css` from `/meteor-slides/css/` to your theme's directory to
 3. Meteor Slides Settings
 
 == Changelog ==
+
+= 1.2.3 =
+* Centered slides, fixed navigation bugs, added slideshow navigation buttons, updated translation files.
 
 = 1.2.2 =
 * Added slideshow navigation, added Italian, Portuguese, and Spanish translations.
@@ -102,6 +114,9 @@ Copy `meteor-slides.css` from `/meteor-slides/css/` to your theme's directory to
 
 == Upgrade Notice ==
 
+= 1.2.3 =
+Meteor Slides 1.2.3 centers slides, fixes navigation bugs, adds slideshow navigation buttons, and updates translation files.
+
 = 1.2.2 =
 Meteor Slides 1.2.2 adds slideshow navigation and Italian, Portuguese, and Spanish translations.
 
@@ -115,4 +130,4 @@ Meteor Slides 1.2 adds localization support and includes Indonesian and Turkish 
 This version of Meteor Slides fixes a bug that was causing some themes to disable the featured images.
 
 = 1.1 =
-This version of Meteor Slides adds a stylesheet for the slideshow which aids theme compatability.
+This version of Meteor Slides adds a stylesheet for the slideshow which aids theme compatibility.

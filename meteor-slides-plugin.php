@@ -6,7 +6,7 @@
 	Author: Josh Leuze
 	Author URI: http://www.jleuze.com/
 	License: GPL2
-	Version: 1.2.2
+	Version: 1.2.3
 */
 
 /*  Copyright 2010 Josh Leuze (email : mail@jleuze.com)
@@ -175,7 +175,7 @@
 
 		foreach( $meteorslides_new_meta_box as $meteorslides_meta_box ) {
 
-			if( !wp_verify_nonce( $_POST[$meteorslides_meta_box['name'].'_noncename'], plugin_basename(__FILE__) ) ) {
+			if( !isset( $_POST[$meteorslides_meta_box['name'].'_noncename']  ) || !wp_verify_nonce( $_POST[$meteorslides_meta_box['name'].'_noncename'], plugin_basename(__FILE__) ) ) {
 
 				return $post_id;
 

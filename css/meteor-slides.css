@@ -6,7 +6,7 @@
 
 #meteor-slideshow, .meteor-slides {
 	margin: 0;
-	padding: 0;
+	padding: 0 0 15px 0;
 	position: relative;
 	z-index: 1;
 	overflow: hidden;
@@ -27,14 +27,15 @@
 	display: block;
 }
 
-#meteor-slideshow .slide a img {
+#meteor-slideshow .slide a {
 	margin: 0;
 	padding: 0;
 	border: 0;
 }
 
 #meteor-slideshow .slide img {
-	margin: 0;
+	display: block;
+	margin: auto;
 	padding: 0;
 	border: 0;
 }
@@ -42,29 +43,29 @@
 ul#meteor-nav {
 	display: none;
 	list-style: none;
-	position: relative;
-	top: 0px;
-	z-index: 50;
 	margin: 0;
 	padding: 0;
 }
 
-*ul#meteor-nav {
-	position: absolute;
+ul#meteor-nav li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: inline;
 }
 
-#meteor-nav #prev {
-	float: left;
-	margin: 0;
+#meteor-nav #prev a {
+	left: 0px;
 }
 
-#meteor-nav #next {
-	float: right;
-	margin: 0;
+#meteor-nav #next a {
+	right: 0px;
 }
 
 #meteor-nav a {
 	display: block;
+	position: absolute;
+	z-index: 50;
 	width: 25px;
 	text-indent: -9999px;
 	outline: none;
@@ -84,4 +85,30 @@ ul#meteor-nav {
 
 #meteor-nav #next a:hover {
 	background: url('../images/next.png') no-repeat center right;
+}
+
+#meteor-buttons {
+	margin: 0;
+	position: absolute;
+	bottom: 0px;
+	left: 46%;
+}
+
+#meteor-buttons a {
+	background: url('../images/buttons.png') no-repeat bottom left;
+	width: 10px;
+	height: 10px;
+	margin: 0 2px;
+	display: block;
+	float: left;
+	text-indent: -9999px;
+	outline: none;
+}
+
+#meteor-buttons a:hover {
+	background: url('../images/buttons.png') no-repeat bottom right;
+}
+
+#meteor-buttons a.activeSlide {
+	background: url('../images/buttons.png') no-repeat bottom right;
 }

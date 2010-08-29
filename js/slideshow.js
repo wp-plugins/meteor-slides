@@ -16,18 +16,25 @@ $j(document).ready(function() {
 
     $j('.slides').cycle({
 	
+		height: $slideheight,
+		width: $slidewidth,
+		fit: '1',
 		fx: $slidetransition,
 		speed: $slidespeed,
 		timeout: $slidetimeout,
 		pause: '1',
 		prev:   '#prev', 
-		next:   '#next'
+		next:   '#next',
+		pager:  '#meteor-buttons', 
+		pagerEvent: 'click'
 		
 	});
 	
 	$j('.meteor-slides,#meteor-nav a,.slides').css('height', $slideheight);
 		
-	$j('.meteor-slides,.slides').css('width', $slidewidth);
+	$j('.meteor-slides,.slide,#meteor-nav').css('width', $slidewidth);
+	
+	$j('.slides').css('overflow', 'visible');
 		
 	$j(".meteor-slides").hover(function() {
 	
