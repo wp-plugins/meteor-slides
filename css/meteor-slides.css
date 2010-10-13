@@ -1,0 +1,122 @@
+/* Stylesheet for the Meteor Slides 1.3 slideshow
+	
+	Copy "meteor-slides.css" from "/meteor-slides/css/" to your theme's directory to replace
+	the plugin's default stylesheet.
+	
+	If you have navigation enabled, be sure to copy the "buttons.png", "next.png",
+	and "prev.png" files to your theme's images folder, or create new graphics to replace them.
+
+*/
+
+.meteor-slides {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+}
+
+.navpaged, .navboth {
+	padding: 0 0 15px 0;
+}
+
+.slides {
+	margin: 0;
+	padding: 0;
+}
+
+#meteor-slideshow .slide {
+	margin: 0;
+	padding: 0;
+	display: none;
+}
+
+#meteor-slideshow #slide-1 {
+	display: block;
+}
+
+#meteor-slideshow .slide a {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+#meteor-slideshow .slide img {
+	display: block;
+	margin: auto;
+	padding: 0;
+	border: 0;
+}
+
+#meteor-slideshow ul.meteor-nav {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.meteor-nav li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+.meteor-nav .prev a {
+	left: 0px;
+}
+
+.meteor-nav .next a {
+	right: 0px;
+}
+
+.meteor-nav a {
+	display: block;
+	position: absolute;
+	z-index: 50;
+	width: 25px;
+	text-indent: -9999px;
+	outline: none;
+}
+	
+.meteor-nav .prev a {
+	background: url('../images/prev.png') no-repeat center right;
+}
+
+.meteor-nav .prev a:hover {
+	background: url('../images/prev.png') no-repeat center left;
+}
+
+.meteor-nav .next a {
+	background: url('../images/next.png') no-repeat center left;
+}
+
+.meteor-nav .next a:hover {
+	background: url('../images/next.png') no-repeat center right;
+}
+
+.meteor-buttons {
+	margin: 0;
+	position: absolute;
+	bottom: 0px;
+	left: 46%;
+}
+
+.meteor-buttons a {
+	background: url('../images/buttons.png') no-repeat bottom left;
+	width: 10px;
+	height: 10px;
+	margin: 0 2px;
+	display: block;
+	float: left;
+	text-indent: -9999px;
+	outline: none;
+}
+
+.meteor-buttons a:hover {
+	background: url('../images/buttons.png') no-repeat bottom right;
+}
+
+.meteor-buttons a.activeSlide {
+	background: url('../images/buttons.png') no-repeat bottom right;
+}
