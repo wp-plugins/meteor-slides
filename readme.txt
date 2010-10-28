@@ -1,47 +1,55 @@
 === Plugin Name ===
-Contributors: JLeuze
+Contributors: jleuze
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mail%40jleuze%2ecom&item_name=Meteor%20Slides%20Donation&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
 Tags: slide, slides, slider, slideshow, image, custom post types, jquery
 Requires at least: 3.0
 Tested up to: 3.0.1
-Stable tag: 1.2.3
+Stable tag: 1.3
 
-Meteor Slides makes it simple to manage a slideshow with WordPress by adding a custom post type for slides.
+Meteor Slides makes it simple to manage slideshows with WordPress by adding a custom post type for slides.
 
 == Description ==
 
-This plugin makes it simple to manage a slideshow with WordPress by adding a custom post type for slides. The slideshow is powered by [jQuery Cycle](http://jquery.malsup.com/cycle/) and has over twenty transition styles to choose from.
+This plugin makes it simple to manage slideshows with WordPress by adding a custom post type for slides. The slideshows are powered by [jQuery Cycle](http://jquery.malsup.com/cycle/) and have over twenty transition styles to choose from.
 
 The slides are managed as featured images through the media library; they will automatically be cropped to the dimensions specified on the settings page. Optionally, each slide can link to any Post, Page, or external URL of your choice.
+
+**[Meteor Slides Homepage](http://www.jleuze.com/plugins/meteor-slides/ "Learn more about Meteor Slides")**
+
+Visit this plugin's homepage for documentation, detailed tutorials, and additional screencasts.
+
+**[Video Overview](http://vimeo.com/16270730 "Meteor Slides video overview")**
+
+This screencast shows some of the new features in 1.3, such as adding multiple slideshows, and using metadata. [Watch more screencasts about Meteor Slides.](http://vimeo.com/album/930565 "Watch more screencasts")
+
+[vimeo http://vimeo.com/16270730]
 
 = Features =
 
 * **Easy integration:** Add the slideshow to your site using a template tag, shortcode, or widget.
-* **Slideshow settings page:** Control the slide height and width, the number of slides, and the slideshow speed and transition style.
+* **Multiple Slideshows:** Organize your slides into multiple slideshows.
+* **Slideshow settings page:** Control the slide height and width, the number of slides, the slideshow speed and transition style, and the type of navigation.
+* **Slideshow metadata:** Customize individual slideshows or configure more [jQuery Cycle options](http://jquery.malsup.com/cycle/options.html "jQuery Cycle Plugin") with the [MetaData jQuery Plugin](http://plugins.jquery.com/project/metadata "MetaData jQuery Plugin").
 * **Slideshow transition styles:** blindX, blindY, blindZ, cover, curtainX, curtainY, fade, fadeZoom, growX, growY, none, scrollUp, scrollDown, scrollLeft, scrollRight, scrollHorz, scrollVert, slideX, slideY, turnUp, turnDown, turnLeft, turnRight, uncover, wipe, zoom.
-* **Slideshow navigation:** Optional previous/next and paged slide navigation.
+* **Slideshow navigation:** Optional previous/next and/or paged slide navigation.
 * **Multiple languages:** English, French, Indonesian, Italian, Portuguese, Romanian, Spanish, Turkish.
-
-= Future Features =
-
-* Multiple slideshows.
-* Choose which slides display.
-* Reorder slides.
 
 [*Got an idea for a feature?*](http://wordpress.org/tags/meteor-slides?forum_id=10#postform "Post feedback or ideas in the forums")
 
 == Installation ==
 
-1. Upload the `meteor-slides` folder to your `/wp-content/plugins/` directory.
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Use `<?php if(function_exists('meteor_slideshow')) { meteor_slideshow(); } ?>` to add this slideshow to your theme, use `[meteor_slideshow]` to add it to your Post or Page content, or use the Meteor Slides Widget to add it to a sidebar.
+1. Upload the **meteor-slides** folder to your **/wp-content/plugins/** directory.
+2. Activate the plugin through the Plugins menu in WordPress
+3. Use the Settings link or go to Slides -> Settings to access the Meteor Slides settings.
 
-**Before adding any slides, go to the Meteor Slides Settings page and set the slide height and width so that those slides are cropped to the correct size.**
+= Configure Slideshow =
+*Before adding any slides, enter the slide height and width in the settings so the slides are the correct dimensions.*
 
-= Meteor Slides Screencast =
-This short screencast explains how to set up Meteor Slides, create new slides, and add the slideshow to your site using the shortcode or template tag.
+= Add Slideshow =
 
-[vimeo http://vimeo.com/12901374]
+Use `<?php if(function_exists('meteor_slideshow')) { meteor_slideshow(); } ?>` to add this slideshow to your theme, use `[meteor_slideshow]` to add it to your Post or Page content, or use the Meteor Slides Widget to add it to a sidebar.
+
+**[Meteor Slides Documentation](http://www.jleuze.com/plugins/meteor-slides/installation/ "Learn more about Meteor Slides")**
 
 *Please [post any questions or problems](http://wordpress.org/tags/meteor-slides?forum_id=10#postform "Post a question or problem in the forums") in the WordPress.org support forums.*
 
@@ -53,7 +61,7 @@ Every post needs a title, make sure to give your slide a title where is says "En
 
 = I added an image to my post, why isn't it showing up in the slide? =
 
-Make sure to click "Use as featured image" after uploading your image. If the image is added correctly to the slide, you could see a thumbnail of that image in the Slide Image metabox. 
+Make sure to click "Use as featured image" after uploading your image. If the image is added correctly to the slide, you should see a thumbnail of that image in the Slide Image metabox. 
 
 = How can I switch the order of the slides? =
 
@@ -69,7 +77,7 @@ Copy `meteor-slides.css` from `/meteor-slides/css/` to your theme's directory to
 
 = I installed Meteor Slides, and now my theme or plugin's jQuery goodies are broken! =
 
-Your theme or plugin is probably loading an extra copy of jQuery from the theme or plugin, or a third party server. This is unnecessary because WordPress already uses jQuery and it is included in the WordPress install. Meteor Slides loads the version that is within WordPress, to fix this, fix your theme or plugin to use the copy of jQuery that comes with WordPress, like this `<?php wp_enqueue_script("jquery"); ?>`.
+Your theme or plugin is probably loading an extra copy of jQuery from the theme or plugin, or a third party server. This is unnecessary because WordPress already uses jQuery and it is included in the WordPress install. Meteor Slides loads the version that is within WordPress, to fix this, change your theme or plugin to use the copy of jQuery that comes with WordPress, like this `<?php wp_enqueue_script("jquery"); ?>`.
 
 = I have another custom post type that uses featured images, and when I install Meteor Slides, it disables the featured image box in my custom post type, what's up with that? =
 
@@ -79,11 +87,24 @@ Meteor Slides is setup to check for post thumbnail support and create an array w
 
 == Screenshots ==
 
-1. New Slide Page
-2. Edit Slide Page
-3. Meteor Slides Settings
+1. Slideshow Preview
+2. New Slide Page
+3. Edit Slide Page
+4. Slides Column View
+5. Manage Slideshows
+6. Meteor Slides Settings
 
 == Changelog ==
+
+= 1.3 =
+* Added custom slideshows taxonomy for multiple slideshows
+* Optional slideshow and metadata parameters for template tag and shortcode
+* Optional title, slideshow, and metadata parameters for the widget
+* Added settings link to plugins page
+* Added Slide image and link to slides column
+* Removed slides from menu editor and search
+* Expanded navigation options
+* Added Metadata jQuery plugin
 
 = 1.2.3 =
 * Centered slides, fixed navigation bugs, added slideshow navigation buttons, updated translation files.
@@ -113,6 +134,9 @@ Meteor Slides is setup to check for post thumbnail support and create an array w
 * Initial release of Meteor Slides.
 
 == Upgrade Notice ==
+
+= 1.3 =
+Meteor Slides 1.3 adds support for multiple slideshows, the Metadata jQuery plugin for advanced customization, more navigation options, and other small improvements and bug fixes.
 
 = 1.2.3 =
 Meteor Slides 1.2.3 centers slides, fixes navigation bugs, adds slideshow navigation buttons, and updates translation files.

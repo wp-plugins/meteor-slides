@@ -20,6 +20,28 @@ No slides found
 
 No slides found in Trash
 
+Slideshows
+
+Slideshow
+
+Search Slideshows
+
+Popular Slideshows
+
+All Slideshows
+
+Parent Slideshow
+
+Parent Slideshow:
+
+Edit Slideshow
+
+Update Slideshow
+
+Add New Slideshow
+
+New Slideshow Name
+
 Slide Image
 
 Add the URL this slide should link to.
@@ -29,6 +51,8 @@ Slide Link
 Slides Settings
 
 Settings
+
+Configure Slideshow
 
 Slideshow Quantity
 
@@ -44,13 +68,15 @@ Slide Duration
 
 Slideshow Navigation
 
-Add Meteor Slides slideshow to a sidebar
+Add a slideshow widget to a sidebar
 
 Meteor Slides Widget
 
-Previous
+Title:
 
-Next
+Slideshow:
+
+Metadata:
 
 Set up your slideshow using the options below.
 
@@ -112,9 +138,13 @@ zoom
 
 seconds
 
-Yes
+None
 
-No
+Previous/Next
+
+Pages
+
+Both
 
 Meteor Slides Settings
 
@@ -122,6 +152,10 @@ Save Changes
 
 Install Slideshow
 
-Use [template tag] to add this slideshow to your theme, use [short code] to add it to your Post or Page content, or use the Meteor Slides Widget to add it to a sidebar.
+Use [template tag] to add this slideshow to your theme, use [short code] to add it to your Post or Page content, or use the Meteor Slides Widget. [url]More information[/url]
 
 Please [url]post any questions or problems[/url] in the WordPress.org support forums.
+
+Previous
+
+Next

@@ -79,12 +79,15 @@
 		}
 		
 		function  slideshow_navigation() {
-				
-			$yes = __('Yes','meteor-slides'); $no = __('No','meteor-slides');;
+		
+			$navnone = __('None','meteor-slides');
+			$navprevnext = __('Previous/Next','meteor-slides');
+			$navpaged = __('Paged','meteor-slides');
+			$navboth = __('Both','meteor-slides');
 			
 			$options = get_option('meteorslides_options');
 		
-			$item = array('no' => $no, 'yes' => $yes);
+			$item = array('navnone' => $navnone, 'navprevnext' => $navprevnext, 'navpaged' => $navpaged, 'navboth' => $navboth);
 		
 			echo "<select id='slideshow_navigation' name='meteorslides_options[slideshow_navigation]' style='width:142px;'>";
 		
@@ -128,8 +131,8 @@
 	
 	<h3><?php _e('Install Slideshow','meteor-slides'); ?></h3>
 	
-	<p><?php printf(__ ('Use %1$s to add this slideshow to your theme, use %2$s to add it to your Post or Page content, or use the Meteor Slides Widget to add it to a sidebar.', 'meteor-slides'), "<code><&#63;php if(function_exists('meteor_slideshow')) { meteor_slideshow(); } &#63;></code>", "<code>[meteor_slideshow]</code>")?></p>
+	<p><?php printf(__ ('Use %1$s to add this slideshow to your theme, use %2$s to add it to your Post or Page content, or use the Meteor Slides Widget. %3$sMore information%4$s', 'meteor-slides'), "<code><&#63;php if(function_exists('meteor_slideshow')) { meteor_slideshow(); } &#63;></code>", "<code>[meteor_slideshow]</code>", "<a href='http://www.jleuze.com/plugins/meteor-slides/'>", "</a>")?></p>
 	
-	<p><em><?php printf(__ ('Please %1$spost any questions or problems%2$s in the WordPress.org support forums.', 'meteor-slides'), "<a href='http://wordpress.org/tags/meteor-slides?forum_id=10#postform'>", '</a>')?></em></p>
+	<p><em><?php printf(__ ('Please %1$spost any questions or problems%2$s in the WordPress.org support forums.', 'meteor-slides'), "<a href='http://wordpress.org/tags/meteor-slides?forum_id=10#postform'>", "</a>")?></em></p>
 	
 </div><!-- .wrap -->

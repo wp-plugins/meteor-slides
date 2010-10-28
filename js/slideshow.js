@@ -13,7 +13,23 @@ var $slidewidth = parseInt( meteorslidessettings.meteorslideshowwidth );
 var $slidetransition = meteorslidessettings.meteorslideshowtransition;
 
 $j(document).ready(function() {
-
+	
+	$j('.meteor-nav a,.slides').css('height', $slideheight);
+		
+	$j('.slide,.meteor-nav').css('width', $slidewidth);
+	
+	$j('.slides').css('overflow', 'visible');
+		
+	$j(".meteor-slides").hover(function() {
+	
+		$j("ul.meteor-nav").css('display', 'block');
+		
+	}, function() {
+	
+		$j("ul.meteor-nav").css('display', 'none');
+		
+	});
+	
     $j('.slides').cycle({
 	
 		height: $slideheight,
@@ -23,26 +39,10 @@ $j(document).ready(function() {
 		speed: $slidespeed,
 		timeout: $slidetimeout,
 		pause: '1',
-		prev:   '#prev', 
-		next:   '#next',
-		pager:  '#meteor-buttons', 
+		prev:   '.prev', 
+		next:   '.next',
+		pager:  '.meteor-buttons', 
 		pagerEvent: 'click'
-		
-	});
-	
-	$j('.meteor-slides,#meteor-nav a,.slides').css('height', $slideheight);
-		
-	$j('.meteor-slides,.slide,#meteor-nav').css('width', $slidewidth);
-	
-	$j('.slides').css('overflow', 'visible');
-		
-	$j(".meteor-slides").hover(function() {
-	
-		$j("ul#meteor-nav").css('display', 'block');
-		
-	}, function() {
-	
-		$j("ul#meteor-nav").css('display', 'none');
 		
 	});
 
