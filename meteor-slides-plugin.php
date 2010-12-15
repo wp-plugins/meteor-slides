@@ -385,8 +385,8 @@
 	function meteorslides_default_options() {
 	
 		$tmp = get_option( 'meteorslides_options' );
-  
-		if ( ( $tmp['slideshow_quantity']=='' ) || ( !is_array( $tm ) ) ) {
+		
+		if ( ( $tmp['slideshow_quantity']=='' )||( !is_array( $tmp ) ) ) {
 
 			$arr = array(
 			
