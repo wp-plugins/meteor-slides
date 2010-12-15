@@ -48,7 +48,7 @@
 	
 			<ul class="meteor-nav">
 		
-				<li class="prev" id="meteor-prev<?php echo $slideshow; ?>"<a href="#"><?php _e( 'Previous', 'meteor-slides' ) ?></a></li>
+				<li class="prev" id="meteor-prev<?php echo $slideshow; ?>"><a href="#"><?php _e( 'Previous', 'meteor-slides' ) ?></a></li>
 			
 				<li class="next" id="meteor-next<?php echo $slideshow; ?>"><a href="#"><?php _e( 'Next', 'meteor-slides' ) ?></a></li>
 			
