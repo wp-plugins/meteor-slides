@@ -1,12 +1,18 @@
-/* Stylesheet for the Meteor Slides 1.3 slideshow
+/*  Stylesheet for the Meteor Slides 1.3.1 slideshow
 	
 	Copy "meteor-slides.css" from "/meteor-slides/css/" to your theme's directory to replace
 	the plugin's default stylesheet.
 	
 	If you have navigation enabled, be sure to copy the "buttons.png", "next.png",
-	and "prev.png" files to your theme's images folder, or create new graphics to replace them.
-
+	and "prev.png" files to your theme's images folder and update the image paths below,
+	or create new graphics to replace them.
+	
+	Learn more about customizing the stylesheet for Meteor Slides: 
+	http://www.jleuze.com/plugins/meteor-slides/customizing-the-stylesheet/
 */
+
+/* =Slideshow
+-------------------------------------------------------------- */
 
 .meteor-slides {
 	margin: 0;
@@ -16,7 +22,8 @@
 	z-index: 1;
 }
 
-.navpaged, .navboth {
+.navpaged,
+.navboth {
 	padding: 0 0 15px 0;
 }
 
@@ -24,6 +31,9 @@
 	margin: 0;
 	padding: 0;
 }
+
+/* =Slide
+-------------------------------------------------------------- */
 
 #meteor-slideshow .slide {
 	display: none;
@@ -48,11 +58,27 @@
 	padding: 0;
 }
 
+#meteor-slideshow .slide img[src$='.png'] {
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)"; /* IE8 */   
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF); /* IE7 */
+	zoom: 1;	
+}
+
+/* =Previous/Next Navigation
+-------------------------------------------------------------- */
+
 #meteor-slideshow ul.meteor-nav {
-	display: none;
 	list-style: none;
 	margin: 0;
 	padding: 0;
+}
+
+html > body .meteor-slides ul.meteor-nav {
+	display: none;
+}
+
+html > body .meteor-slides:hover ul.meteor-nav {
+	display: block;
 }
 
 ul.meteor-nav li {
@@ -94,6 +120,9 @@ ul.meteor-nav li {
 .meteor-nav .next a:hover {
 	background: url('../images/next.png') no-repeat center right;
 }
+
+/* =Paged Navigation
+-------------------------------------------------------------- */
 
 .meteor-buttons {
 	bottom: 0px;

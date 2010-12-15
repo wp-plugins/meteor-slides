@@ -20,23 +20,23 @@ msgstr ""
 
 #: meteor-slides-plugin.php:78
 msgid "Slides"
-msgstr "Diaporamas"
+msgstr "Diapositives"
 
 #: meteor-slides-plugin.php:79
 msgid "Slide"
-msgstr "Diaporama"
+msgstr "Diapositive"
 
 #: meteor-slides-plugin.php:80
 msgid "Add New"
-msgstr "Ajoutez un nouveau"
+msgstr "Nouvelle Diapositive"
 
 #: meteor-slides-plugin.php:81
 msgid "Add New Slide"
-msgstr "Ajoutez un nouveau diaporama"
+msgstr "Nouvelle Diapositive"
 
 #: meteor-slides-plugin.php:82
 msgid "Edit Slide"
-msgstr "Modifier le diaporama"
+msgstr "Modifier une Diapositive"
 
 #: meteor-slides-plugin.php:83
 msgid "Edit"
@@ -44,84 +44,84 @@ msgstr "Modifier"
 
 #: meteor-slides-plugin.php:84
 msgid "New Slide"
-msgstr "Nouveau diaporama"
+msgstr "Nouvelle Diapositive"
 
 #: meteor-slides-plugin.php:85
 #: meteor-slides-plugin.php:89
 msgid "View Slide"
-msgstr "Voir le diaporama"
+msgstr "Voir la Diapositive"
 
 #: meteor-slides-plugin.php:86
 msgid "Search Slides"
-msgstr "Chercher un diaporama"
+msgstr "Chercher une Diapositive"
 
 #: meteor-slides-plugin.php:87
 msgid "No slides found"
-msgstr "Aucun diaporamas trouvés"
+msgstr "Aucune diapositive trouvée"
 
 #: meteor-slides-plugin.php:88
 msgid "No slides found in Trash"
-msgstr "Aucun diaporamas trouvés dans la corbeille"
+msgstr "Aucune diapositive trouvée dans la corbeille"
 
 #: meteor-slides-plugin.php:127
 msgid "Slideshows"
-msgstr ""
+msgstr "Diaporamas"
 
 #: meteor-slides-plugin.php:128
 msgid "Slideshow"
-msgstr ""
+msgstr "Diaporama"
 
 #: meteor-slides-plugin.php:129
 msgid "Search Slideshows"
-msgstr ""
+msgstr "Rechercher un Diaporama"
 
 #: meteor-slides-plugin.php:130
 msgid "Popular Slideshows"
-msgstr ""
+msgstr "Diaporamas populaires"
 
 #: meteor-slides-plugin.php:131
 msgid "All Slideshows"
-msgstr ""
+msgstr "Tous les Diaporamas"
 
 #: meteor-slides-plugin.php:132
 msgid "Parent Slideshow"
-msgstr ""
+msgstr "Diaporama parent"
 
 #: meteor-slides-plugin.php:133
 msgid "Parent Slideshow:"
-msgstr ""
+msgstr "Diaporama parent:"
 
 #: meteor-slides-plugin.php:134
 msgid "Edit Slideshow"
-msgstr ""
+msgstr "Editer le Diaporama"
 
 #: meteor-slides-plugin.php:135
 msgid "Update Slideshow"
-msgstr ""
+msgstr "Mettre à jour le Diaporama"
 
 #: meteor-slides-plugin.php:136
 msgid "Add New Slideshow"
-msgstr ""
+msgstr "Nouveau Diaporama"
 
 #: meteor-slides-plugin.php:137
 msgid "New Slideshow Name"
-msgstr ""
+msgstr "Nouveau nom de Diaporama"
 
 #: meteor-slides-plugin.php:159
 msgid "Slide Image"
-msgstr "Image slide"
+msgstr "Image de Diapositive"
 
 #: meteor-slides-plugin.php:194
 msgid "Add the URL this slide should link to."
-msgstr "Ajoutez l'URL qui se référe  à ce diaporama"
+msgstr "Renseignez l'URL vers laquelle cette diapositive doit pointer"
 
 #: meteor-slides-plugin.php:206
 msgid "Slide Link"
-msgstr "Lien du diaporama"
+msgstr "Lien de la diapositive"
 
 #: meteor-slides-plugin.php:324
 msgid "Slides Settings"
-msgstr "Réglages du diaporama"
+msgstr "Réglages de Diapositives"
 
 #: meteor-slides-plugin.php:324
 msgid "Settings"
@@ -129,19 +129,19 @@ msgstr "Réglages"
 
 #: meteor-slides-plugin.php:358
 msgid "Configure Slideshow"
-msgstr "Configurer le diaporama"
+msgstr "Configurer le Diaporama"
 
 #: meteor-slides-plugin.php:360
 msgid "Slideshow Quantity"
-msgstr "Quantité de diaporama"
+msgstr "Quantité de Diaporamas"
 
 #: meteor-slides-plugin.php:362
 msgid "Slide Height"
-msgstr "Hauteur du diaporama"
+msgstr "Hauteur de la Diapositive"
 
 #: meteor-slides-plugin.php:364
 msgid "Slide Width"
-msgstr "Largeur du diaporama"
+msgstr "Largeur de la Diapositive"
 
 #: meteor-slides-plugin.php:366
 msgid "Transition Style"
@@ -153,15 +153,15 @@ msgstr "Vitesse de transition"
 
 #: meteor-slides-plugin.php:370
 msgid "Slide Duration"
-msgstr "Durée du diaporama"
+msgstr "Durée de la Diapositive"
 
 #: meteor-slides-plugin.php:372
 msgid "Slideshow Navigation"
-msgstr ""
+msgstr "Navigation du Diaporama"
 
 #: meteor-slides-plugin.php:605
 msgid "Add a slideshow widget to a sidebar"
-msgstr "Ajoutez un Meteor Slide à la barre latérale"
+msgstr "Ajouter un Meteor Slide à la barre latérale"
 
 #: meteor-slides-plugin.php:609
 msgid "Meteor Slides Widget"
@@ -169,15 +169,15 @@ msgstr "Widget Meteor Slide"
 
 #: meteor-slides-plugin.php:653
 msgid "Title:"
-msgstr ""
+msgstr "Titre:"
 
 #: meteor-slides-plugin.php:656
 msgid "Slideshow:"
-msgstr ""
+msgstr "Diaporama:"
 
 #: meteor-slides-plugin.php:659
 msgid "Metadata:"
-msgstr ""
+msgstr "Matadonnées:"
 
 #: meteor-slides-settings.php:7
 msgid "Set up your slideshow using the options below."
@@ -190,15 +190,15 @@ msgstr ""
 
 #: meteor-slides-settings.php:41
 msgid "blindX"
-msgstr ""
+msgstr "masqueX"
 
 #: meteor-slides-settings.php:41
 msgid "blindY"
-msgstr ""
+msgstr "masqueY"
 
 #: meteor-slides-settings.php:41
 msgid "blindZ"
-msgstr ""
+msgstr "masqueZ"
 
 #: meteor-slides-settings.php:41
 msgid "cover"
@@ -218,7 +218,7 @@ msgstr "fondu"
 
 #: meteor-slides-settings.php:41
 msgid "fadeZoom"
-msgstr "foudu zoom"
+msgstr "fondu zoom"
 
 #: meteor-slides-settings.php:41
 msgid "growX"
@@ -234,35 +234,35 @@ msgstr "aucun"
 
 #: meteor-slides-settings.php:41
 msgid "scrollUp"
-msgstr "roulement vers le haut"
+msgstr "déroulement vers le haut"
 
 #: meteor-slides-settings.php:41
 msgid "scrollDown"
-msgstr "roulement vers le bas"
+msgstr "déroulement vers le bas"
 
 #: meteor-slides-settings.php:41
 msgid "scrollLeft"
-msgstr "roulement vers la gauche"
+msgstr "déroulement vers la gauche"
 
 #: meteor-slides-settings.php:41
 msgid "scrollRight"
-msgstr "roulement vers la droite"
+msgstr "déroulement vers la droite"
 
 #: meteor-slides-settings.php:41
 msgid "scrollHorz"
-msgstr "roulement Hortz"
+msgstr "déroulement Hortz"
 
 #: meteor-slides-settings.php:41
 msgid "scrollVert"
-msgstr "roulement Vert"
+msgstr "déroulement Vert"
 
 #: meteor-slides-settings.php:41
 msgid "slideX"
-msgstr ""
+msgstr "glissementX"
 
 #: meteor-slides-settings.php:41
 msgid "slideY"
-msgstr ""
+msgstr "glissementY"
 
 #: meteor-slides-settings.php:41
 msgid "shuffle"
@@ -270,11 +270,11 @@ msgstr "aléatoire"
 
 #: meteor-slides-settings.php:41
 msgid "turnUp"
-msgstr "Montée"
+msgstr "Tourner vers le haut"
 
 #: meteor-slides-settings.php:41
 msgid "turnDown"
-msgstr "Descente"
+msgstr "Tourner vers le bas"
 
 #: meteor-slides-settings.php:41
 msgid "turnLeft"
@@ -303,19 +303,19 @@ msgstr "secondes"
 
 #: meteor-slides-settings.php:83
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 #: meteor-slides-settings.php:84
 msgid "Previous/Next"
-msgstr ""
+msgstr "Précédent/Suivant"
 
 #: meteor-slides-settings.php:85
 msgid "Paged"
-msgstr ""
+msgstr "Paginé"
 
 #: meteor-slides-settings.php:86
 msgid "Both"
-msgstr ""
+msgstr "Les deux"
 
 #: meteor-slides-settings.php:112
 msgid "Meteor Slides Settings"
@@ -332,20 +332,19 @@ msgstr "Installer Meteor Slide"
 #: meteor-slides-settings.php:134
 #, php-format
 msgid "Use %1$s to add this slideshow to your theme, use %2$s to add it to your Post or Page content, or use the Meteor Slides Widget. %3$sMore information%4$s"
-msgstr "Pour ajouter les diaporamas à votre thème utilisez %1$s, pourles 'ajouter au contenu de vos articles ou pages, utilisez %2$s, ou utilisez le widget Meteor Slides pour rajoutez les diaporamas à votre barre latérale. %3$sPlus d'informations%4$s"
+msgstr "Pour ajouter les diaporamas à votre thème utilisez %1$s, pour les 'ajouter au contenu de vos articles ou pages, utilisez %2$s, ou utilisez le Widget Meteor Slides pour rajouter les diaporamas à votre barre latérale. %3$sPlus d'informations%4$s"
 
 #: meteor-slides-settings.php:136
 #, php-format
 msgid "Please %1$spost any questions or problems%2$s in the WordPress.org support forums."
-msgstr "S'il vous plait veuillez poster %1$s vos questions ou problemes %2$s dans le forum de support sur Wordpress.org"
+msgstr "Merci de poster %1$s vos questions ou problèmes %2$s dans le forum de support sur Wordpress.org"
 
 #: meteor-slideshow.php:17
 #: meteor-slideshow.php:29
 msgid "Previous"
-msgstr ""
+msgstr "Précédent"
 
 #: meteor-slideshow.php:19
 #: meteor-slideshow.php:31
 msgid "Next"
-msgstr ""
-
+msgstr "Suivant"

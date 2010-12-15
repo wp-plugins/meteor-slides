@@ -14,21 +14,11 @@ var $slidetransition = meteorslidessettings.meteorslideshowtransition;
 
 $j(document).ready(function() {
 	
-	$j('.meteor-nav a,.slides').css('height', $slideheight);
+	$j('.meteor-slides,.slides,.meteor-nav a').css('height', $slideheight);
 		
-	$j('.slide,.meteor-nav').css('width', $slidewidth);
+	$j('.meteor-slides,.slide,.meteor-nav').css('width', $slidewidth);
 	
 	$j('.slides').css('overflow', 'visible');
-		
-	$j(".meteor-slides").hover(function() {
-	
-		$j("ul.meteor-nav").css('display', 'block');
-		
-	}, function() {
-	
-		$j("ul.meteor-nav").css('display', 'none');
-		
-	});
 	
     $j('.slides').cycle({
 	
@@ -39,10 +29,11 @@ $j(document).ready(function() {
 		speed: $slidespeed,
 		timeout: $slidetimeout,
 		pause: '1',
-		prev:   '.prev', 
-		next:   '.next',
-		pager:  '.meteor-buttons', 
-		pagerEvent: 'click'
+		prev: '#meteor-prev',
+		next: '#meteor-next',
+		pager: '#meteor-buttons',
+		pagerEvent: 'click',
+		cleartypeNoBg: 'true'
 		
 	});
 
