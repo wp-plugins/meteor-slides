@@ -148,7 +148,7 @@ You can help right on this page by rating the plugin or voting for its compatibi
 == Upgrade Notice ==
 
 = 1.3.1 =
-Meteor Slides 1.3.1 fixes thumbnail registration conflicts, transparent images issues, and navigation for multiple slides.
+Meteor Slides 1.3.1 fixes thumbnail registration conflicts, transparent images issues, and navigation for multiple slideshows.
 
 = 1.3 =
 Meteor Slides 1.3 adds support for multiple slideshows, the Metadata jQuery plugin for advanced customization, more navigation options, and other small improvements and bug fixes.
