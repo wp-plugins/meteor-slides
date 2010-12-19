@@ -26,7 +26,41 @@
 		
 	) ); ?>
 	
-	<div id="meteor-slideshow" class="meteor-slides <?php echo $meteornav . ' ' . $slideshow; ?>">
+	<div id="meteor-slideshow<?php echo $slideshow; ?>" class="meteor-slides <?php
+	
+		// Adds classes to slideshow
+	
+		echo $slideshow . ' ' . $meteornav;
+		
+		// Adds metadata to slideshow
+		
+		if ( !empty( $metadata ) || !empty( $slideshow ) ) {
+			
+			echo ' { ';
+				
+		}
+		
+		if ( !empty( $slideshow ) ) {
+			
+			echo "next: '#meteor-next" . $slideshow . "', prev: '#meteor-prev" . $slideshow . "', pager: '#meteor-buttons" . $slideshow . "'";
+				
+		}
+				
+		if ( !empty( $metadata ) && !empty( $slideshow ) ) {
+			
+			echo ', ';
+				
+		}
+			
+		echo $metadata;
+		
+		if ( !empty( $metadata ) || !empty( $slideshow ) ) {
+			
+			echo ' }';
+				
+		}
+			
+	?>">
 		
 		<?php // Adds Previous/Next and Paged navigation
 		
@@ -34,13 +68,13 @@
 	
 			<ul class="meteor-nav">
 		
-				<li class="prev" id="meteor-prev<?php echo $slideshow; ?>"><a href="#"><?php _e( 'Previous', 'meteor-slides' ) ?></a></li>
+				<li id="meteor-prev<?php echo $slideshow; ?>" class="prev"><a href="#prev"><?php _e( 'Previous', 'meteor-slides' ) ?></a></li>
 			
-				<li class="next" id="meteor-next<?php echo $slideshow; ?>"><a href="#"><?php _e( 'Next', 'meteor-slides' ) ?></a></li>
+				<li id="meteor-next<?php echo $slideshow; ?>" class="next"><a href="#next"><?php _e( 'Next', 'meteor-slides' ) ?></a></li>
 			
 			</ul><!-- .meteor-nav -->
 		
-			<div class="meteor-buttons" id="meteor-buttons<?php echo $slideshow; ?>"></div>
+			<div id="meteor-buttons<?php echo $slideshow; ?>" class="meteor-buttons"></div>
 		
 		<?php // Adds Previous/Next navigation
 		
@@ -48,9 +82,9 @@
 	
 			<ul class="meteor-nav">
 		
-				<li class="prev" id="meteor-prev<?php echo $slideshow; ?>"><a href="#"><?php _e( 'Previous', 'meteor-slides' ) ?></a></li>
+				<li id="meteor-prev<?php echo $slideshow; ?>" class="prev"><a href="#prev"><?php _e( 'Previous', 'meteor-slides' ) ?></a></li>
 			
-				<li class="next" id="meteor-next<?php echo $slideshow; ?>"><a href="#"><?php _e( 'Next', 'meteor-slides' ) ?></a></li>
+				<li id="meteor-next<?php echo $slideshow; ?>" class="next"><a href="#next"><?php _e( 'Next', 'meteor-slides' ) ?></a></li>
 			
 			</ul><!-- .meteor-nav -->
 		
@@ -58,58 +92,36 @@
 		
 		elseif ( $meteornav == "navpaged" ): ?>
 	
-			<div class="meteor-buttons" id="meteor-buttons<?php echo $slideshow; ?>"></div>
+			<div id="meteor-buttons<?php echo $slideshow; ?>" class="meteor-buttons"></div>
 			
 		<?php endif; ?>
-		
-		<div class="slides { <?php
-		
-			// Adds metadata to slideshow
-		
-			if ( !empty( $slideshow ) ) {
-			
-				echo "next: '#meteor-next" . $slideshow . "', prev: '#meteor-prev" . $slideshow . "', pager: '#meteor-buttons" . $slideshow . "'";
-				
-			}
-				
-			if ( !empty( $metadata ) && !empty( $slideshow ) ) {
-			
-				echo ', ';
-				
-			}
-			
-			echo $metadata;
-			
-		?> }">
 	
-			<?php // Loop which loads the slideshow
+		<?php // Loop which loads the slideshow
 			
-			while ( $loop->have_posts() ) : $loop->the_post(); ?>
+		while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
-				<div id="slide-<?php echo $i; ?>" class="slide">
+			<div class="slide slide-<?php echo $i; ?>">
 				
-					<?php // Adds slide image with Slide URL link
+				<?php // Adds slide image with Slide URL link
 					
-					if ( get_post_meta( $post->ID, "slide_url_value", $single = true ) != "" ): ?>
+				if ( get_post_meta( $post->ID, "slide_url_value", $single = true ) != "" ): ?>
 						
-						<a href="<?php echo get_post_meta( $post->ID, "slide_url_value", $single = true ); ?>" title="<?php the_title(); ?>"><?php the_post_thumbnail( 'featured-slide' ); ?></a>
+					<a href="<?php echo get_post_meta( $post->ID, "slide_url_value", $single = true ); ?>" title="<?php the_title(); ?>"><?php the_post_thumbnail( 'featured-slide' ); ?></a>
 			
-					<?php // Adds slide image
+				<?php // Adds slide image
 					
-					else: ?>
+				else: ?>
 					
-						<?php the_post_thumbnail( 'featured-slide' ); ?>
+					<?php the_post_thumbnail( 'featured-slide' ); ?>
 					
-					<?php endif; ?>
+				<?php endif; ?>
 			
-				</div><!-- .slide -->
+			</div><!-- .slide -->
 			
-				<?php $i++; ?>
+			<?php $i++; ?>
 			
-			<?php endwhile; ?>
-		
-		</div><!-- .slides -->
-		
+		<?php endwhile; ?>
+				
 		<?php wp_reset_query(); ?>
 			
-	</div><!-- #meteor-slideshow -->
+	</div><!-- .meteor-slides -->

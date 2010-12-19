@@ -14,13 +14,7 @@ var $slidetransition = meteorslidessettings.meteorslideshowtransition;
 
 $j(document).ready(function() {
 	
-	$j('.meteor-slides,.slides,.meteor-nav a').css('height', $slideheight);
-		
-	$j('.meteor-slides,.slide,.meteor-nav').css('width', $slidewidth);
-	
-	$j('.slides').css('overflow', 'visible');
-	
-    $j('.slides').cycle({
+    $j('.meteor-slides').cycle({
 	
 		height: $slideheight,
 		width: $slidewidth,
@@ -33,7 +27,8 @@ $j(document).ready(function() {
 		next: '#meteor-next',
 		pager: '#meteor-buttons',
 		pagerEvent: 'click',
-		cleartypeNoBg: 'true'
+		cleartypeNoBg: 'true',
+		slideExpr: '.slide'
 		
 	});
 
