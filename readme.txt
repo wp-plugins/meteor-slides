@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mail%
 Tags: slide, slides, slider, slideshow, image, custom post types, jquery
 Requires at least: 3.0
 Tested up to: 3.1
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 
 Meteor Slides makes it simple to create slideshows with WordPress by adding a custom post type for slides.
 
