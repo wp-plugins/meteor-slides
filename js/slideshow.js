@@ -28,7 +28,7 @@ $j(document).ready(function() {
 		pager: '#meteor-buttons',
 		pagerEvent: 'click',
 		cleartypeNoBg: 'true',
-		slideExpr: '.slide'
+		slideExpr: '.mslide'
 		
 	});
 

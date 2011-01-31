@@ -2,14 +2,14 @@
  * jQuery Cycle Plugin (with Transition Definitions)
  * Examples and documentation at: http://jquery.malsup.com/cycle/
  * Copyright (c) 2007-2010 M. Alsup
- * Version: 2.88 (08-JUN-2010)
+ * Version: 2.94 (20-DEC-2010)
  * Dual licensed under the MIT and GPL licenses.
  * http://jquery.malsup.com/license.html
  * Requires: jQuery v1.2.6 or later
  */
 ;(function($) {
 
-var ver = '2.88';
+var ver = '2.94';
 
 // if $.support is not defined (pre jQuery 1.3) add what I need
 if ($.support == undefined) {
@@ -79,7 +79,7 @@ $.fn.cycle = function(options, arg2) {
 		if (opts2 === false)
 			return;
 
-		var startTime = opts2.continuous ? 10 : getTimeout(els[opts2.currSlide], els[opts2.nextSlide], opts2, !opts2.rev);
+		var startTime = opts2.continuous ? 10 : getTimeout(els[opts2.currSlide], els[opts2.nextSlide], opts2, !opts2.backwards);
 
 		// if it's an auto slideshow, kick it off
 		if (startTime) {
@@ -87,7 +87,7 @@ $.fn.cycle = function(options, arg2) {
 			if (startTime < 10)
 				startTime = 10;
 			debug('first timeout: ' + startTime);
-			this.cycleTimeout = setTimeout(function(){go(els,opts2,0,(!opts2.rev && !opts.backwards))}, startTime);
+			this.cycleTimeout = setTimeout(function(){go(els,opts2,0,!opts.backwards)}, startTime);
 		}
 	});
 };
@@ -173,7 +173,7 @@ function handleArguments(cont, options, arg2) {
 				clearTimeout(cont.cycleTimeout);
 				cont.cycleTimeout = 0;
 			}
-			go(options.elements, options, 1, (!opts.rev && !opts.backwards));
+			go(options.elements, options, 1, !options.backwards);
 		}
 	}
 };
@@ -221,7 +221,7 @@ function buildOptions($cont, $slides, els, options, o) {
 	if (!$.support.opacity && opts.cleartype)
 		opts.after.push(function() { removeFilter(this, opts); });
 	if (opts.continuous)
-		opts.after.push(function() { go(els,opts,0,(!opts.rev && !opts.backwards)); });
+		opts.after.push(function() { go(els,opts,0,!opts.backwards); });
 
 	saveOriginalOpts(opts);
 
@@ -392,9 +392,9 @@ function buildOptions($cont, $slides, els, options, o) {
 		opts.after[1].apply(e0, [e0, e0, opts, true]);
 
 	if (opts.next)
-		$(opts.next).bind(opts.prevNextEvent,function(){return advance(opts,opts.rev?-1:1)});
+		$(opts.next).bind(opts.prevNextEvent,function(){return advance(opts,1)});
 	if (opts.prev)
-		$(opts.prev).bind(opts.prevNextEvent,function(){return advance(opts,opts.rev?1:-1)});
+		$(opts.prev).bind(opts.prevNextEvent,function(){return advance(opts,0)});
 	if (opts.pager || opts.pagerAnchorBuilder)
 		buildPager(els,opts);
 
@@ -482,7 +482,7 @@ function exposeAddSlide(opts, els) {
 		if (opts.fit && opts.width)
 			$s.width(opts.width);
 		if (opts.fit && opts.height && opts.height != 'auto')
-			$slides.height(opts.height);
+			$s.height(opts.height);
 		s.cycleH = (opts.fit && opts.height) ? opts.height : $s.height();
 		s.cycleW = (opts.fit && opts.width) ? opts.width : $s.width();
 
@@ -646,7 +646,7 @@ function go(els, opts, manual, fwd) {
 	else if (opts.continuous && p.cyclePause) // continuous shows work off an after callback, not this timer logic
 		ms = 10;
 	if (ms > 0)
-		p.cycleTimeout = setTimeout(function(){ go(els, opts, 0, (!opts.rev && !opts.backwards)) }, ms);
+		p.cycleTimeout = setTimeout(function(){ go(els, opts, 0, !opts.backwards) }, ms);
 };
 
 // invoked after transition
@@ -671,11 +671,12 @@ function getTimeout(curr, next, opts, fwd) {
 };
 
 // expose next/prev function, caller must pass in state
-$.fn.cycle.next = function(opts) { advance(opts, opts.rev?-1:1); };
-$.fn.cycle.prev = function(opts) { advance(opts, opts.rev?1:-1);};
+$.fn.cycle.next = function(opts) { advance(opts,1); };
+$.fn.cycle.prev = function(opts) { advance(opts,0);};
 
 // advance slide forward or back
-function advance(opts, val) {
+function advance(opts, moveForward) {
+	var val = moveForward ? 1 : -1;
 	var els = opts.elements;
 	var p = opts.$cont[0], timeout = p.cycleTimeout;
 	if (timeout) {
@@ -709,7 +710,7 @@ function advance(opts, val) {
 	var cb = opts.onPrevNextEvent || opts.prevNextClick; // prevNextClick is deprecated
 	if ($.isFunction(cb))
 		cb(val > 0, opts.nextSlide, els[opts.nextSlide]);
-	go(els, opts, 1, val>=0);
+	go(els, opts, 1, moveForward);
 	return false;
 };
 
@@ -811,9 +812,9 @@ $.fn.cycle.commonReset = function(curr,next,opts,w,h,rev) {
 	$(opts.elements).not(curr).hide();
 	opts.cssBefore.opacity = 1;
 	opts.cssBefore.display = 'block';
-	if (w !== false && next.cycleW > 0)
+	if (opts.slideResize && w !== false && next.cycleW > 0)
 		opts.cssBefore.width = next.cycleW;
-	if (h !== false && next.cycleH > 0)
+	if (opts.slideResize && h !== false && next.cycleH > 0)
 		opts.cssBefore.height = next.cycleH;
 	opts.cssAfter = opts.cssAfter || {};
 	opts.cssAfter.display = 'none';
@@ -895,6 +896,7 @@ $.fn.cycle.defaults = {
 	random:		   0,	  // true for random, false for sequence (not applicable to shuffle fx)
 	fit:		   0,	  // force slides to fit container
 	containerResize: 1,	  // resize container to fit largest slide
+	slideResize:   1,     // force slide width/height to fixed size before every transition
 	pause:		   0,	  // true to enable "pause on hover"
 	pauseOnPagerHover: 0, // true to pause when hovering over pager link
 	autostop:	   0,	  // true to end slideshow after X transitions (where X == slide count)
@@ -906,7 +908,7 @@ $.fn.cycle.defaults = {
 	nowrap:		   0,	  // true to prevent slideshow from wrapping
 	fastOnEvent:   0,	  // force fast transitions when triggered manually (via pager or prev/next); value == time in ms
 	randomizeEffects: 1,  // valid when multiple effects are used; true to make the effect sequence random
-	rev:		   0,	 // causes animations to transition in reverse
+	rev:		   0,	  // causes animations to transition in reverse (for effects that support it such as scrollHorz/scrollVert/shuffle)
 	manualTrump:   true,  // causes manual transition to stop an active transition instead of being ignored
 	requeueOnImageNotLoaded: true, // requeue the slideshow if any image slides are not yet loaded
 	requeueTimeout: 250,  // ms delay for requeue
@@ -923,7 +925,7 @@ $.fn.cycle.defaults = {
  * This script is a plugin for the jQuery Cycle Plugin
  * Examples and documentation at: http://malsup.com/jquery/cycle/
  * Copyright (c) 2007-2010 M. Alsup
- * Version:	 2.72
+ * Version:	 2.73
  * Dual licensed under the MIT and GPL licenses:
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.gnu.org/licenses/gpl.html
@@ -942,6 +944,18 @@ $.fn.cycle.transitions.none = function($cont, $slides, opts) {
 		after();
 	};
 }
+// not a cross-fade, fadeout only fades out the top slide
+$.fn.cycle.transitions.fadeout = function($cont, $slides, opts) {
+	$slides.not(':eq('+opts.currSlide+')').css({ display: 'block', 'opacity': 1 });
+	opts.before.push(function(curr,next,opts,w,h,rev) {
+		$(curr).css('zIndex',opts.slideCount + (!rev === true ? 1 : 0));
+		$(next).css('zIndex',opts.slideCount + (!rev === true ? 0 : 1));
+	});
+	opts.animIn    = { opacity: 1 };
+	opts.animOut   = { opacity: 0 };
+	opts.cssBefore = { opacity: 1, display: 'block' };
+	opts.cssAfter  = { zIndex: 0 };
+};
 
 // scrollUp/Down/Left/Right
 $.fn.cycle.transitions.scrollUp = function($cont, $slides, opts) {
@@ -983,6 +997,8 @@ $.fn.cycle.transitions.scrollRight = function($cont, $slides, opts) {
 $.fn.cycle.transitions.scrollHorz = function($cont, $slides, opts) {
 	$cont.css('overflow','hidden').width();
 	opts.before.push(function(curr, next, opts, fwd) {
+		if (opts.rev)
+			fwd = !fwd;
 		$.fn.cycle.commonReset(curr,next,opts);
 		opts.cssBefore.left = fwd ? (next.cycleW-1) : (1-next.cycleW);
 		opts.animOut.left = fwd ? -curr.cycleW : curr.cycleW;
@@ -995,6 +1011,8 @@ $.fn.cycle.transitions.scrollHorz = function($cont, $slides, opts) {
 $.fn.cycle.transitions.scrollVert = function($cont, $slides, opts) {
 	$cont.css('overflow','hidden');
 	opts.before.push(function(curr, next, opts, fwd) {
+		if (opts.rev)
+			fwd = !fwd;
 		$.fn.cycle.commonReset(curr,next,opts);
 		opts.cssBefore.top = fwd ? (1-next.cycleH) : (next.cycleH-1);
 		opts.animOut.top = fwd ? curr.cycleH : -curr.cycleH;
@@ -1050,6 +1068,8 @@ $.fn.cycle.transitions.shuffle = function($cont, $slides, opts) {
 
 	// custom transition fn (hat tip to Benjamin Sterling for this bit of sweetness!)
 	opts.fxFn = function(curr, next, opts, cb, fwd) {
+		if (opts.rev)
+			fwd = !fwd;
 		var $el = fwd ? $(curr) : $(next);
 		$(next).css(opts.cssBefore);
 		var count = opts.slideCount;
@@ -1080,6 +1100,7 @@ $.fn.cycle.transitions.turnUp = function($cont, $slides, opts) {
 		$.fn.cycle.commonReset(curr,next,opts,true,false);
 		opts.cssBefore.top = next.cycleH;
 		opts.animIn.height = next.cycleH;
+		opts.animOut.width = next.cycleW;
 	});
 	opts.cssFirst  = { top: 0 };
 	opts.cssBefore = { left: 0, height: 0 };

@@ -30,30 +30,30 @@
 /* =Slide
 -------------------------------------------------------------- */
 
-.meteor-slides .slide {
+.meteor-slides .mslide {
 	display: none;
 	margin: 0;
 	padding: 0;
 }
 
-.meteor-slides .slide-1 {
+.meteor-slides .mslide-1 {
 	display: block;
 }
 
-.meteor-slides.slide a {
+.meteor-slides .mslide a {
 	border: 0;
 	margin: 0;
 	padding: 0;
 }
 
-.meteor-slides .slide img {
+.meteor-slides .mslide img {
 	border: 0;
 	display: block;
 	margin: auto !important;
 	padding: 0;
 }
 
-.meteor-slides.slide img[src$='.png'] {
+.meteor-slides .mslide img[src$='.png'] {
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)"; /* IE8 */   
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF); /* IE7 */
 	zoom: 1;	
@@ -64,7 +64,7 @@
 
 .meteor-slides ul.meteor-nav {
 	list-style: none;
-	margin: 0;
+	margin-bottom: 0;
 	padding: 0;
 }
 
@@ -74,7 +74,7 @@ body .meteor-slides ul.meteor-nav {
 	_display: block;
 }
 
-.meteor-slides:hover ul.meteor-nav {
+body .meteor-slides:hover ul.meteor-nav {
 	display: block;
 }
 

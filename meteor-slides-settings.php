@@ -194,9 +194,11 @@
 				
 	</form>
 	
-	<h3><?php _e( 'Install Slideshow', 'meteor-slides' ); ?></h3>
+	<h3><?php _e( 'Add Slideshow', 'meteor-slides' ); ?></h3>
 	
-	<p><?php printf( __ ( 'Use %1$s to add this slideshow to your theme, use %2$s to add it to your Post or Page content, or use the Meteor Slides Widget. %3$sMore information%4$s', 'meteor-slides'), "<code><&#63;php if ( function_exists( 'meteor_slideshow' ) ) { meteor_slideshow(); } &#63;></code>", "<code>[meteor_slideshow]</code>", "<a href='http://www.jleuze.com/plugins/meteor-slides/'>", "</a>" )?></p>
+	<p><?php printf( __ ( 'Use %1$s to add this slideshow to your theme, use %2$s to add it to your Post or Page content, or use the Meteor Slides Widget.', 'meteor-slides'), "<code><&#63;php if ( function_exists( 'meteor_slideshow' ) ) { meteor_slideshow(); } &#63;></code>", "<code>[meteor_slideshow]</code>" )?></p>
+	
+	<p><?php printf( __ ( 'Visit the %1$sMeteor Slides homepage%2$s for documentation, tutorials, and videos.', 'meteor-slides' ), "<a href='http://www.jleuze.com/plugins/meteor-slides/'>", "</a>" )?></p>
 	
 	<p><em><?php printf( __ ( 'Please %1$spost any questions or problems%2$s in the WordPress.org support forums.', 'meteor-slides' ), "<a href='http://wordpress.org/tags/meteor-slides?forum_id=10#postform'>", "</a>" )?></em></p>
 	

@@ -100,7 +100,7 @@
 			
 		while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
-			<div class="slide slide-<?php echo $i; ?>">
+			<div class="mslide mslide-<?php echo $i; ?>">
 				
 				<?php // Adds slide image with Slide URL link
 					
@@ -108,7 +108,7 @@
 						
 					<a href="<?php echo get_post_meta( $post->ID, "slide_url_value", $single = true ); ?>" title="<?php the_title(); ?>"><?php the_post_thumbnail( 'featured-slide' ); ?></a>
 			
-				<?php // Adds slide image
+				<?php // Adds slide image without Slide URL link
 					
 				else: ?>
 					
@@ -116,7 +116,7 @@
 					
 				<?php endif; ?>
 			
-			</div><!-- .slide -->
+			</div><!-- .mslide -->
 			
 			<?php $i++; ?>
 			

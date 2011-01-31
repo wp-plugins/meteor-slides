@@ -3,8 +3,8 @@ Contributors: jleuze
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mail%40jleuze%2ecom&item_name=Meteor%20Slides%20Donation&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
 Tags: slide, slides, slider, slideshow, image, custom post types, jquery
 Requires at least: 3.0
-Tested up to: 3.0.3
-Stable tag: 1.3.1
+Tested up to: 3.1
+Stable tag: 1.3.2
 
 Meteor Slides makes it simple to create slideshows with WordPress by adding a custom post type for slides.
 
@@ -30,7 +30,7 @@ This screencast shows some of the new features in 1.3, such as adding multiple s
 * **Slideshow metadata:** Customize individual slideshows or configure more [jQuery Cycle options](http://jquery.malsup.com/cycle/options.html "jQuery Cycle Plugin") with the [MetaData jQuery Plugin](http://plugins.jquery.com/project/metadata "MetaData jQuery Plugin").
 * **Slideshow transition styles:** blindX, blindY, blindZ, cover, curtainX, curtainY, fade, fadeZoom, growX, growY, none, scrollUp, scrollDown, scrollLeft, scrollRight, scrollHorz, scrollVert, slideX, slideY, turnUp, turnDown, turnLeft, turnRight, uncover, wipe, zoom.
 * **Slideshow navigation:** Optional previous/next and/or paged slide navigation.
-* **Multiple languages:** English, French, Indonesian, Italian, Portuguese, Romanian, Spanish, Swedish, Turkish.
+* **Multiple languages:** Chinese, English, French, Indonesian, Italian, Portuguese, Romanian, Spanish, Swedish, Turkish.
 
 *[Got a question about Meteor Slides?](http://wordpress.org/tags/meteor-slides?forum_id=10#postform "Post a question in the forums")*
 
@@ -69,7 +69,7 @@ The slides load in the order they were published, you can change the publish dat
 
 = Why is the slideshow covering up my dropdown menus? =
 
-The `z-index` on the slideshow is higher than the dropdowns, causing them to be layered below the slides. Lower the `z-index` of `#meteor-slideshow` or raise the `z-index` of your dropdowns until the dropdowns are above the slideshow.
+The `z-index` on the slideshow is higher than the dropdowns, causing them to be layered below the slides. Lower the `z-index` of `.meteor-slides` or raise the `z-index` of your dropdowns until the dropdowns are above the slideshow.
 
 = How do I customize the slideshow's CSS stylesheet? =
 
@@ -100,13 +100,23 @@ You can help right on this page by rating the plugin or voting for its compatibi
 
 == Changelog ==
 
+= 1.3.2 =
+* Improved support for multiple slideshows of different sizes
+* Fixed transparent PNG bug
+* Updated functions for WordPress 3.1 compatibility
+* Updated screenshots for WordPress 3.1
+* Updated JQuery Cycle to 2.94
+* Added message filters for slides
+* Added contextual help
+* Added Chinese translation
+
 = 1.3.1 =
-* Fixed post thumbnail registration conflicts.
-* Added support for custom slideshow loop.
-* Fixed navigation for multiple slideshows.
-* Improved support for transparent images.
-* Fixed slideshow layout issues.
-* Updated French translation.
+* Fixed post thumbnail registration conflicts
+* Added support for custom slideshow loop
+* Fixed navigation for multiple slideshows
+* Improved support for transparent images
+* Fixed slideshow layout issues
+* Updated French translation
 
 = 1.3 =
 * Added custom slideshows taxonomy for multiple slideshows
@@ -146,6 +156,9 @@ You can help right on this page by rating the plugin or voting for its compatibi
 * Initial release of Meteor Slides.
 
 == Upgrade Notice ==
+
+= 1.3.2 =
+Meteor Slides 1.3.2 improves support for multiple slideshows and adds updates for WordPress 3.1 compatability. Any custom stylesheets or templates will need to be updated for use with this release.
 
 = 1.3.1 =
 Meteor Slides 1.3.1 fixes thumbnail registration conflicts, transparent images issues, and navigation for multiple slideshows.
