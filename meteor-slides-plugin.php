@@ -1,15 +1,15 @@
 <?php
 /*
 	Plugin Name: Meteor Slides
-	Description: Meteor Slides makes it simple to create slideshows with WordPress by adding a custom post type for slides.
+	Description: Easily create responsive slideshows with WordPress that are mobile friendly and simple to customize.
 	Plugin URI: http://www.jleuze.com/plugins/meteor-slides
 	Author: Josh Leuze
 	Author URI: http://www.jleuze.com/
 	License: GPL2
-	Version: 1.4
+	Version: 1.5
 */
 
-/*  Copyright 2011 Josh Leuze (email : mail@jleuze.com)
+/*  Copyright 2012 Josh Leuze (email : mail@jleuze.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
@@ -31,7 +31,7 @@
 
 	function meteorslides_register_slides() {
 	
-		$labels = array(
+		$meteor_labels = array(
 
 			'name'               => __( 'Slides', 'meteor-slides' ),
 			'singular_name'      => __( 'Slide', 'meteor-slides' ),
@@ -50,7 +50,7 @@
 				
 		if ( function_exists( 'members_get_capabilities' ) ) {
 	
-			$capabilities = array(
+			$meteor_capabilities = array(
 		
 				'edit_post'          => 'meteorslides_edit_slide',
 				'edit_posts'         => 'meteorslides_edit_slides',
@@ -62,13 +62,13 @@
 
 			);
 			
-			$capabilitytype = 'slide';
+			$meteor_capabilitytype = 'slide';
 			
-			$mapmetacap = false;
+			$meteor_mapmetacap = false;
 		
 		} else {
 		
-			$capabilities = array(
+			$meteor_capabilities = array(
 		
 				'edit_post'          => 'edit_post',
 				'edit_posts'         => 'edit_posts',
@@ -80,24 +80,24 @@
 
 			);
 			
-			$capabilitytype = 'post';
+			$meteor_capabilitytype = 'post';
 			
-			$mapmetacap = true;
+			$meteor_mapmetacap = true;
 		
 		}
 		
-		$args = array(
+		$meteor_args = array(
 	
-			'labels'              => $labels,
+			'labels'              => $meteor_labels,
 			'public'              => true,
 			'publicly_queryable'  => false,
 			'exclude_from_search' => true,
 			'show_ui'             => true,
 			'show_in_menu'        => true,
 			'menu_icon'           => ''. plugins_url( '/images/slides-icon-20x20.png', __FILE__ ),
-			'capability_type'     => $capabilitytype,
-			'capabilities'        => $capabilities,
-			'map_meta_cap'        => $mapmetacap,
+			'capability_type'     => $meteor_capabilitytype,
+			'capabilities'        => $meteor_capabilities,
+			'map_meta_cap'        => $meteor_mapmetacap,
 			'hierarchical'        => false,
 			'supports'            => array( 'title', 'thumbnail' ),
 			'taxonomies'          => array( 'slideshow' ),
@@ -109,7 +109,7 @@
 		
 		);
   
-		register_post_type( 'slide', $args );
+		register_post_type( 'slide', $meteor_args );
 		
 	}
 
@@ -119,7 +119,7 @@
 	
 	function meteorslides_register_taxonomy() {
 	
-		$labels = array(
+		$meteor_tax_labels = array(
 				
 			'name'              => __( 'Slideshows', 'meteor-slides' ),
 			'singular_name'     => __( 'Slideshow', 'meteor-slides' ),
@@ -138,7 +138,7 @@
 		
 		if ( function_exists( 'members_get_capabilities' ) ) {
 	
-			$capabilities = array(
+			$meteor_tax_capabilities = array(
 		
 				'manage_terms' => 'meteorslides_manage_slideshows',
 				'edit_terms'   => 'meteorslides_manage_slideshows',
@@ -149,7 +149,7 @@
 		
 		} else {
 		
-			$capabilities = array(
+			$meteor_tax_capabilities = array(
 		
 				'manage_terms' => 'manage_categories',
 				'edit_terms'   => 'manage_categories',
@@ -160,20 +160,20 @@
 		
 		}
 		
-		$args = array(
+		$meteor_tax_args = array(
 	
-			'labels'            => $labels,
+			'labels'            => $meteor_tax_labels,
 			'public'            => true,
 			'show_in_nav_menus' => false,
 			'show_ui'           => true,
 			'show_tagcloud'     => false,
 			'hierarchical'      => true,
 			'rewrite'           => array( 'slug' => 'slideshow' ),
-			'capabilities'      => $capabilities
+			'capabilities'      => $meteor_tax_capabilities
 		
 		);
 	
-		register_taxonomy( 'slideshow', 'slide', $args );
+		register_taxonomy( 'slideshow', 'slide', $meteor_tax_args );
 		
 	}
 	
@@ -205,9 +205,9 @@
 	
 	function meteorslides_featured_image() {
 		
-		$options = get_option( 'meteorslides_options' );
+		$meteor_options = get_option( 'meteorslides_options' );
 				
-		add_image_size( 'featured-slide', $options['slide_width'], $options['slide_height'], true );
+		add_image_size( 'featured-slide', $meteor_options['slide_width'], $meteor_options['slide_height'], true );
 		
 		add_image_size( 'featured-slide-thumb', 250, 9999 );
 	
@@ -245,13 +245,14 @@
 		
 	function meteorslides_javascript() {
  		
-		$options = get_option( 'meteorslides_options' );
+		$meteor_options = get_option( 'meteorslides_options' );
  
 		if( !is_admin() ) {
 	  
 			wp_enqueue_script( 'jquery' );
-			wp_enqueue_script( 'jquery-cycle', plugins_url( '/js/jquery.cycle.all.min.js', __FILE__ ), array( 'jquery' ) );
+			wp_enqueue_script( 'jquery-cycle', plugins_url( '/js/jquery.cycle.all.js', __FILE__ ), array( 'jquery' ) );
 			wp_enqueue_script( 'jquery-metadata', plugins_url( '/js/jquery.metadata.v2.js', __FILE__ ), array( 'jquery' ) );
+			wp_enqueue_script( 'jquery-touchwipe', plugins_url( '/js/jquery.touchwipe.1.1.1.js', __FILE__ ), array( 'jquery' ) );
 			
 			if ( file_exists( get_stylesheet_directory()."/slideshow.js" ) ) {
                 
@@ -275,11 +276,11 @@
 			
 				array(
 				
-					'meteorslideshowspeed'      => $options['transition_speed'] * 1000,
-					'meteorslideshowduration'   => $options['slide_duration'] * 1000,
-					'meteorslideshowheight'     => $options['slide_height'],
-					'meteorslideshowwidth'      => $options['slide_width'],
-					'meteorslideshowtransition' => $options['transition_style']
+					'meteorslideshowspeed'      => $meteor_options['transition_speed'] * 1000,
+					'meteorslideshowduration'   => $meteor_options['slide_duration'] * 1000,
+					'meteorslideshowheight'     => $meteor_options['slide_height'],
+					'meteorslideshowwidth'      => $meteor_options['slide_width'],
+					'meteorslideshowtransition' => $meteor_options['transition_style']
 					
 				)
 				
@@ -303,11 +304,11 @@
 	
 	function meteorslides_default_options() {
 	
-		$tmp = get_option( 'meteorslides_options' );
+		$meteor_temp = get_option( 'meteorslides_options' );
 		
-		if ( ( $tmp['slideshow_quantity']=='' )||( !is_array( $tmp ) ) ) {
+		if ( ( $meteor_temp['slideshow_quantity']=='' )||( !is_array( $meteor_temp ) ) ) {
 
-			$arr = array(
+			$meteor_defaults_args = array(
 			
 				'slideshow_quantity'   => '5',
 				'slide_height'         => '200',
@@ -319,7 +320,7 @@
 				
 			);	
 			
-			update_option( 'meteorslides_options', $arr );
+			update_option( 'meteorslides_options', $meteor_defaults_args );
 	
 		}
 
@@ -357,14 +358,14 @@
 		
 	// Adds shortcode to load slideshow in content
 	
-	function meteor_slideshow_shortcode( $atts ) {
+	function meteor_slideshow_shortcode( $meteor_atts ) {
 	
 		extract( shortcode_atts( array (
 		
 			'slideshow' => '',
 			'metadata'  => '',
 			
-		), $atts ) );
+		), $meteor_atts ) );
 		
 		$slideshow_att = $slideshow;
 		
@@ -462,9 +463,38 @@
 		
 			echo '<p><label for="' . $this->get_field_id( 'title' ) . '">' . __('Title:', 'meteor-slides') . '</label>
 			<input type="text" class="widefat" id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" value="' . $instance['title'] . '" /></p>';
-
-			echo '<p><label for="' . $this->get_field_id( 'slideshow' ) . '">' . __('Slideshow:', 'meteor-slides') . '</label>
-			<input type="text" class="widefat" id="' . $this->get_field_id( 'slideshow' ) . '" name="' . $this->get_field_name( 'slideshow' ) . '" value="' . $instance['slideshow'] . '" /></p>';
+			
+			// If the slideshow taxonomy has terms, create a select list of those terms
+			
+			$slideshow_terms       = get_terms( 'slideshow' );
+			$slideshow_terms_count = count($slideshow_terms);
+			$slideshow_value       = $instance['slideshow'];
+			
+			if ( $slideshow_terms_count > 0 ) {
+			
+				echo '<p><label for="' . $this->get_field_id( 'slideshow' ) . '">' . __('Slideshow:', 'meteor-slides') . '</label>';
+			
+				echo '<select name="' . $this->get_field_name( 'slideshow' ) . '" id="' . $this->get_field_id( 'slideshow' ) . '" class="widefat">';
+				
+				echo '<option value="">All Slides</option>';
+				
+				foreach ( $slideshow_terms as $slideshow_terms ) {
+				
+					if ( $slideshow_terms->slug == $slideshow_value ) {
+					
+						echo '<option selected="selected" value="' . $slideshow_terms->slug . '">' . $slideshow_terms->name . '</option>';
+					
+					} else {
+				
+						echo '<option value="' . $slideshow_terms->slug . '">' . $slideshow_terms->name . '</option>';
+					
+					}
+        
+				}
+					
+				echo '</select>';
+				
+			}
 
 			echo '<p><label for="' . $this->get_field_id( 'metadata' ) . '">' . __('Metadata:', 'meteor-slides') . '</label>
 			<input type="text" class="widefat" id="' . $this->get_field_id( 'metadata' ) . '" name="' . $this->get_field_name( 'metadata' ) . '" value="' . $instance['metadata'] . '" /></p>';
@@ -472,5 +502,10 @@
 		}
 
 	}
+	
+/*
+	Now slides the silent meteor on, and leaves
+	A shining furrow, as thy thoughts in me.
+*/
 	
 ?>

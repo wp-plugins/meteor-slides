@@ -1,16 +1,16 @@
-=== Plugin Name ===
+=== Meteor Slides ===
 Contributors: jleuze
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mail%40jleuze%2ecom&item_name=Meteor%20Slides%20Donation&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
-Tags: slide, slides, slider, slideshow, image, custom post types, jquery
-Requires at least: 3.2.1
-Tested up to: 3.2.1
-Stable tag: 1.4
+Tags: custom post types, image, jquery, responsive, slide, slider, slides, slideshow
+Requires at least: 3.3
+Tested up to: 3.3.2
+Stable tag: 1.5
 
-Meteor Slides makes it simple to create slideshows with WordPress by adding a custom post type for slides.
+Easily create responsive slideshows with WordPress that are mobile friendly and simple to customize.
 
 == Description ==
 
-Easily create slideshows and publish them with a shortcode or widget. The slideshows are powered by [jQuery Cycle](http://jquery.malsup.com/cycle/) and have over twenty transition styles to choose from.
+Meteor Slides makes it simple to create slideshows and publish them with a shortcode, widget, or template tag. The slideshows scale with responsive and fluid themes to fit any device and have touch support. Powered by [jQuery Cycle](http://jquery.malsup.com/cycle/) with over twenty transition styles to choose from.
 
 = Meteor Slides Homepage =
 
@@ -25,12 +25,13 @@ This screencast shows some of the plugin's features, such as different transitio
 = Features =
 
 * **Easy integration:** Add the slideshow to your site using a template tag, shortcode, or widget.
+* **Mobile Friendly:** Scales to fit any device, supports touch navigation for mobiles and tablets.
 * **Multiple Slideshows:** Organize your slides into multiple slideshows.
 * **Slideshow settings page:** Control the slide height and width, the number of slides, the slideshow speed and transition style, and the type of navigation.
 * **Slideshow metadata:** Customize individual slideshows or configure more [jQuery Cycle options](http://jquery.malsup.com/cycle/options.html "jQuery Cycle Plugin") with the [MetaData jQuery Plugin](http://plugins.jquery.com/project/metadata "MetaData jQuery Plugin").
 * **Slideshow transition styles:** blindX, blindY, blindZ, cover, curtainX, curtainY, fade, fadeZoom, growX, growY, none, scrollUp, scrollDown, scrollLeft, scrollRight, scrollHorz, scrollVert, slideX, slideY, turnUp, turnDown, turnLeft, turnRight, uncover, wipe, zoom.
 * **Slideshow navigation:** Optional previous/next and/or paged slide navigation.
-* **Multiple languages:** Chinese, English, French, Hebrew, Indonesian, Italian, Japanese, Polish, Portuguese, Portuguese (Brazilian), Romanian, Russian, Spanish, Swedish, Turkish.
+* **Multiple languages:** Belarusian, Chinese, Czech, Danish, Dutch, English, French, German, Hebrew, Indonesian, Italian, Japanese, Persian, Polish, Portuguese, Portuguese (Brazilian), Romanian, Russian, Spanish, Swedish, Turkish.
 
 *[Got a question about Meteor Slides?](http://wordpress.org/tags/meteor-slides?forum_id=10#postform "Post a question in the forums")*
 
@@ -54,6 +55,10 @@ Check out the [Meteor Slides Documentation](http://www.jleuze.com/plugins/meteor
 *Please [post any questions or problems](http://wordpress.org/tags/meteor-slides?forum_id=10#postform "Post a question or problem in the forums") in the WordPress.org support forums.*
 
 == Frequently Asked Questions ==
+
+= Meteor Slides is awesome, what can I do to help? =
+
+You can help right on this page by rating the plugin or voting for its compatibility with the latest version of WordPress. Blog about Meteor Slides to get the word out, or [visit my blog](http://www.jleuze.com/ "JLeuze.com") to post feedback or just say hi. You could also [translate Meteor Slides](http://www.jleuze.com/plugins/meteor-slides/languages/ "Meteor Slides Languages") into another language or [make a donation](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mail%40jleuze%2ecom&item_name=Meteor%20Slides%20Donation&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8 "Donate").
 
 = I add a slide, save or publish it, and then it's missing or not found, what gives? =
 
@@ -83,9 +88,11 @@ Copy **meteor-slideshow.php** from **/meteor-slides/** to your theme's directory
 
 Your theme or plugin is probably loading an extra copy of jQuery from the theme or plugin, or a third party server. This is unnecessary because WordPress already uses jQuery and it is included in the WordPress install. Meteor Slides loads the version that is within WordPress, to fix this, change your theme or plugin to use the copy of jQuery that comes with WordPress, like this `<?php wp_enqueue_script("jquery"); ?>`.
 
-= Meteor Slides is awesome, what can I do to help? =
+It's also possible that a script in your theme or another plugin is using the "$" shortcut instead of "jQuery", which will break because WordPress loads jQuery in ["no conflict" mode](http://codex.wordpress.org/Function_Reference/wp_enqueue_script#jQuery_noConflict_wrappers "no conflict mode"). Try inspecting the site with Firebug or another tool to look for JavaScript errors.
 
-You can help right on this page by rating the plugin or voting for its compatibility with the latest version of WordPress. Blog about Meteor Slides to get the word out, or [visit my blog](http://www.jleuze.com/ "JLeuze.com") to post feedback or just say hi. You could also [translate Meteor Slides](http://www.jleuze.com/plugins/meteor-slides/languages/ "Meteor Slides Languages") into another language or [make a donation](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mail%40jleuze%2ecom&item_name=Meteor%20Slides%20Donation&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8 "Donate").
+= I just installed Meteor Slides, but the Slides menu is missing, where do I go? =
+
+If the Slides menu is missing, you probably have the [Members](http://wordpress.org/extend/plugins/members/ "Members plugin") plugin activated. Meteor Slides supports the Members plugin, so if you have them both running you can use Members to choose which roles can manage the slides or slideshow settings. Take a look at [this blog post](http://www.jleuze.com/using-the-members-plugin-with-meteor-slides/ "Using the Members plugin with Meteor Slides") for more info on using these plugins together.
 
 *Please [post any questions or problems](http://wordpress.org/tags/meteor-slides?forum_id=10#postform "Post a question or problem in the forums") in the WordPress.org support forums.*
 
@@ -97,8 +104,16 @@ You can help right on this page by rating the plugin or voting for its compatibi
 4. Slides Column View
 5. Manage Slideshows
 6. Meteor Slides Settings
+7. Meteor Slides Widget
 
 == Changelog ==
+= 1.5 =
+* Updated slideshow to scale for responsive and fluid width themes
+* Added slideshow taxonomy selector to widget
+* Added jQuery Touchwipe plugin to enable touch navigation
+* Updated and expand contextual help
+* Updated JQuery Cycle to 2.9999.5, switch to un-minimized version
+* Added Belarusian, Czech, Danish, Dutch, and Persian translations
 
 = 1.4 =
 * Replaced slideshow skin with new navigation graphics and layout
@@ -169,6 +184,9 @@ You can help right on this page by rating the plugin or voting for its compatibi
 * Initial release of Meteor Slides.
 
 == Upgrade Notice ==
+
+= 1.5 =
+Meteor Slides 1.5 adds responsive slideshow support, touch navigation, an improved slideshow widget, new translations, and updates jQuery Cycle.
 
 = 1.4 =
 Meteor Slides 1.4 replaces the navigation graphics, adds support for custom scripts and the Members plugin, updates jQuery Cycle and adds new and updated translations.
