@@ -6,10 +6,10 @@
 	Author: Josh Leuze
 	Author URI: http://www.jleuze.com/
 	License: GPL2
-	Version: 1.5.1
+	Version: 1.5.2
 */
 
-/*  Copyright 2013 Josh Leuze (email : mail@jleuze.com)
+/*  Copyright 2014 Josh Leuze (email : mail@jleuze.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
@@ -94,7 +94,7 @@
 			'exclude_from_search' => true,
 			'show_ui'             => true,
 			'show_in_menu'        => true,
-			'menu_icon'           => ''. plugins_url( '/images/slides-icon-20x20.png', __FILE__ ),
+			'menu_icon'           => 'dashicons-images-alt2',
 			'capability_type'     => $meteor_capabilitytype,
 			'capabilities'        => $meteor_capabilities,
 			'map_meta_cap'        => $meteor_mapmetacap,
